@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schedule>
+  <conference>
+    <title>FOSDEM 2020</title>
+  </conference>
+  <day index="1" date="2020-02-01">
+    <room name="Janson">
+      <event id="9025">
+        <start>09:30</start>
+        <duration>00:25</duration>
+        <title>Welcome to FOSDEM 2020</title>
+      </event>
+    </room>
+  </day>
+  <day index="2" date="2020-02-02"></day>
+</schedule>
