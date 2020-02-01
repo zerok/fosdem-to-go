@@ -31,11 +31,29 @@ final class FosdemScheduleTests: XCTestCase {
         
         // Day 1 should have at least one room associated with it:
         let rooms = schedule?.days[0].rooms
-        XCTAssertGreaterThan(rooms!.count, 0)
-        XCTAssertEqual(rooms![0].name, "Janson")
-        XCTAssertGreaterThan(rooms![0].events.count, 0)
-        XCTAssertEqual(rooms![0].events[0].title, "Welcome to FOSDEM 2020")
-        XCTAssertEqual(rooms![0].events[0].id, "9025")
+        if let rooms = rooms {
+            XCTAssertGreaterThan(rooms.count, 0)
+            if !rooms.isEmpty {
+                let firstRoom = rooms[0]
+                XCTAssertEqual(firstRoom.name, "Janson")
+                XCTAssertGreaterThan(firstRoom.events.count, 0)
+                
+                if !firstRoom.events.isEmpty {
+                    let firstEvent = firstRoom.events[0]
+                    XCTAssertEqual(firstEvent.title, "Welcome to FOSDEM 2020")
+                    XCTAssertEqual(firstEvent.id, "9025")
+                    XCTAssertNotNil(firstEvent.abstract)
+                    XCTAssertNotNil(firstEvent.description)
+                    
+                    let start = "2020-02-01T09:30:00+01:00"
+                    let end = "2020-02-01T09:55:00+01:00"
+                    let startDate = formatter.date(from: start)!
+                    let endDate = formatter.date(from: end)!
+                    XCTAssertEqual(firstEvent.interval?.start, startDate)
+                    XCTAssertEqual(firstEvent.interval?.end, endDate)
+                }
+            }
+        }
     }
 
     static var allTests = [
