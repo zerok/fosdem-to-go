@@ -10,6 +10,7 @@
         <duration>00:25</duration>
         <title>Welcome to FOSDEM 2020</title>
         <abstract>abstract</abstract>
+        <track>Track A</track>
         <description>description</description>
       </event>
     </room>

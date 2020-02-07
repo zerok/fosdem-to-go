@@ -44,6 +44,7 @@ final class FosdemScheduleTests: XCTestCase {
                     XCTAssertEqual(firstEvent.id, "9025")
                     XCTAssertNotNil(firstEvent.abstract)
                     XCTAssertNotNil(firstEvent.description)
+                    XCTAssertEqual(firstEvent.track, "Track A")
                     
                     let start = "2020-02-01T09:30:00+01:00"
                     let end = "2020-02-01T09:55:00+01:00"
