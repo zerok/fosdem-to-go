@@ -34,6 +34,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         self.performSegue(withIdentifier: "pickYear", sender: nil)
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "General"
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
