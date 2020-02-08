@@ -250,7 +250,12 @@ public class Day {
 extension Day: CustomStringConvertible {
     public var description: String {
         if let date = self.date {
-            return ISO8601DateFormatter().string(from: date)
+            let tz = TimeZone(identifier: "Europe/Brussels")
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .none
+            formatter.timeZone = tz!
+            return formatter.string(from: date)
         } else {
             return "<no date>"
         }
