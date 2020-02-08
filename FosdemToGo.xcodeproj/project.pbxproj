@@ -1,0 +1,791 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A6362C123D715F200F88A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6362C023D715F200F88A92 /* AppDelegate.swift */; };
+		7A6362CA23D715F400F88A92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A6362C923D715F400F88A92 /* Assets.xcassets */; };
+		7A6362CD23D715F400F88A92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A6362CC23D715F400F88A92 /* Preview Assets.xcassets */; };
+		7A6362D023D715F400F88A92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A6362CE23D715F400F88A92 /* LaunchScreen.storyboard */; };
+		7A6362DB23D715F500F88A92 /* FosdemToGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6362DA23D715F500F88A92 /* FosdemToGoTests.swift */; };
+		7A6362E623D715F500F88A92 /* FosdemToGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6362E523D715F500F88A92 /* FosdemToGoUITests.swift */; };
+		7A6362F523D717FB00F88A92 /* FosdemToGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A6362F323D717FB00F88A92 /* FosdemToGo.xcdatamodeld */; };
+		7A6362FE23D7525900F88A92 /* FosdemScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6362FD23D7525900F88A92 /* FosdemScheduleTests.swift */; };
+		7A69F56123DB23B000731474 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A69F56023DB23AF00731474 /* UserData.swift */; };
+		7A80D9FB23EDA4230074EEBB /* FosdemSchedule in Frameworks */ = {isa = PBXBuildFile; productRef = 7A80D9FA23EDA4230074EEBB /* FosdemSchedule */; };
+		7A80D9FD23EDB3200074EEBB /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80D9FC23EDB3200074EEBB /* DayViewController.swift */; };
+		7A80DA0023EDEF260074EEBB /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7A80D9FF23EDEF260074EEBB /* ReSwift */; };
+		7A80DA0223EDF4050074EEBB /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80DA0123EDF4050074EEBB /* Actions.swift */; };
+		7AF114A923EC792800D2CC8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF114A823EC792800D2CC8E /* ViewController.swift */; };
+		7AF114EA23EC7CA400D2CC8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF114E923EC7CA400D2CC8E /* SceneDelegate.swift */; };
+		7AF114EC23EC7D4D00D2CC8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AF114EB23EC7D4D00D2CC8E /* Main.storyboard */; };
+		7AF114EE23EC893500D2CC8E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF114ED23EC893500D2CC8E /* SettingsViewController.swift */; };
+		7AF114F023ECAEB800D2CC8E /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF114EF23ECAEB800D2CC8E /* ScheduleController.swift */; };
+		7AF114F223ECBA5700D2CC8E /* YearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF114F123ECBA5700D2CC8E /* YearViewController.swift */; };
+		7AF114F423ECBB0900D2CC8E /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF114F323ECBB0900D2CC8E /* UserSettings.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A6362D723D715F400F88A92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A6362B523D715F200F88A92 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A6362BC23D715F200F88A92;
+			remoteInfo = "fosdem-to-go";
+		};
+		7A6362E223D715F500F88A92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A6362B523D715F200F88A92 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A6362BC23D715F200F88A92;
+			remoteInfo = "fosdem-to-go";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7A6362BD23D715F200F88A92 /* FosdemToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FosdemToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A6362C023D715F200F88A92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7A6362C923D715F400F88A92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A6362CC23D715F400F88A92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7A6362CF23D715F400F88A92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7A6362D123D715F400F88A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A6362D623D715F400F88A92 /* FosdemToGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FosdemToGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A6362DA23D715F500F88A92 /* FosdemToGoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FosdemToGoTests.swift; sourceTree = "<group>"; };
+		7A6362DC23D715F500F88A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A6362E123D715F500F88A92 /* FosdemToGoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FosdemToGoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A6362E523D715F500F88A92 /* FosdemToGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FosdemToGoUITests.swift; sourceTree = "<group>"; };
+		7A6362E723D715F500F88A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A6362F423D717FB00F88A92 /* fosdem_to_go.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = fosdem_to_go.xcdatamodel; sourceTree = "<group>"; };
+		7A6362F623D73E1800F88A92 /* FosdemSchedule */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FosdemSchedule; sourceTree = "<group>"; };
+		7A6362FB23D7525800F88A92 /* FosdemScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FosdemScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A6362FD23D7525900F88A92 /* FosdemScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FosdemScheduleTests.swift; sourceTree = "<group>"; };
+		7A6362FF23D7525900F88A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A69F56023DB23AF00731474 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		7A80D9FC23EDB3200074EEBB /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		7A80DA0123EDF4050074EEBB /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		7AF114A823EC792800D2CC8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7AF114E923EC7CA400D2CC8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7AF114EB23EC7D4D00D2CC8E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7AF114ED23EC893500D2CC8E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7AF114EF23ECAEB800D2CC8E /* ScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
+		7AF114F123ECBA5700D2CC8E /* YearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewController.swift; sourceTree = "<group>"; };
+		7AF114F323ECBB0900D2CC8E /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A6362BA23D715F200F88A92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A80D9FB23EDA4230074EEBB /* FosdemSchedule in Frameworks */,
+				7A80DA0023EDEF260074EEBB /* ReSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A6362D323D715F400F88A92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A6362DE23D715F500F88A92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A6362F823D7525800F88A92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A6362B423D715F200F88A92 = {
+			isa = PBXGroup;
+			children = (
+				7A6362F623D73E1800F88A92 /* FosdemSchedule */,
+				7A6362BF23D715F200F88A92 /* FosdemToGo */,
+				7A6362D923D715F500F88A92 /* FosdemToGoTests */,
+				7A6362E423D715F500F88A92 /* FosdemToGoUITests */,
+				7A6362FC23D7525900F88A92 /* FosdemScheduleTests */,
+				7A6362BE23D715F200F88A92 /* Products */,
+				7A80D9F923EDA4230074EEBB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7A6362BE23D715F200F88A92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A6362BD23D715F200F88A92 /* FosdemToGo.app */,
+				7A6362D623D715F400F88A92 /* FosdemToGoTests.xctest */,
+				7A6362E123D715F500F88A92 /* FosdemToGoUITests.xctest */,
+				7A6362FB23D7525800F88A92 /* FosdemScheduleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A6362BF23D715F200F88A92 /* FosdemToGo */ = {
+			isa = PBXGroup;
+			children = (
+				7AF114F123ECBA5700D2CC8E /* YearViewController.swift */,
+				7A80D9FC23EDB3200074EEBB /* DayViewController.swift */,
+				7AF114F323ECBB0900D2CC8E /* UserSettings.swift */,
+				7AF114A823EC792800D2CC8E /* ViewController.swift */,
+				7AF114ED23EC893500D2CC8E /* SettingsViewController.swift */,
+				7AF114EF23ECAEB800D2CC8E /* ScheduleController.swift */,
+				7A6362F323D717FB00F88A92 /* FosdemToGo.xcdatamodeld */,
+				7A6362C023D715F200F88A92 /* AppDelegate.swift */,
+				7AF114E923EC7CA400D2CC8E /* SceneDelegate.swift */,
+				7A69F56023DB23AF00731474 /* UserData.swift */,
+				7A6362C923D715F400F88A92 /* Assets.xcassets */,
+				7A6362CE23D715F400F88A92 /* LaunchScreen.storyboard */,
+				7A6362D123D715F400F88A92 /* Info.plist */,
+				7AF114EB23EC7D4D00D2CC8E /* Main.storyboard */,
+				7A6362CB23D715F400F88A92 /* Preview Content */,
+				7A80DA0123EDF4050074EEBB /* Actions.swift */,
+			);
+			path = FosdemToGo;
+			sourceTree = "<group>";
+		};
+		7A6362CB23D715F400F88A92 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7A6362CC23D715F400F88A92 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7A6362D923D715F500F88A92 /* FosdemToGoTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A6362DA23D715F500F88A92 /* FosdemToGoTests.swift */,
+				7A6362DC23D715F500F88A92 /* Info.plist */,
+			);
+			path = FosdemToGoTests;
+			sourceTree = "<group>";
+		};
+		7A6362E423D715F500F88A92 /* FosdemToGoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7A6362E523D715F500F88A92 /* FosdemToGoUITests.swift */,
+				7A6362E723D715F500F88A92 /* Info.plist */,
+			);
+			path = FosdemToGoUITests;
+			sourceTree = "<group>";
+		};
+		7A6362FC23D7525900F88A92 /* FosdemScheduleTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A6362FD23D7525900F88A92 /* FosdemScheduleTests.swift */,
+				7A6362FF23D7525900F88A92 /* Info.plist */,
+			);
+			path = FosdemScheduleTests;
+			sourceTree = "<group>";
+		};
+		7A80D9F923EDA4230074EEBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A6362BC23D715F200F88A92 /* FosdemToGo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A6362EA23D715F500F88A92 /* Build configuration list for PBXNativeTarget "FosdemToGo" */;
+			buildPhases = (
+				7A6362B923D715F200F88A92 /* Sources */,
+				7A6362BA23D715F200F88A92 /* Frameworks */,
+				7A6362BB23D715F200F88A92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FosdemToGo;
+			packageProductDependencies = (
+				7A80D9FA23EDA4230074EEBB /* FosdemSchedule */,
+				7A80D9FF23EDEF260074EEBB /* ReSwift */,
+			);
+			productName = "fosdem-to-go";
+			productReference = 7A6362BD23D715F200F88A92 /* FosdemToGo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7A6362D523D715F400F88A92 /* FosdemToGoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A6362ED23D715F500F88A92 /* Build configuration list for PBXNativeTarget "FosdemToGoTests" */;
+			buildPhases = (
+				7A6362D223D715F400F88A92 /* Sources */,
+				7A6362D323D715F400F88A92 /* Frameworks */,
+				7A6362D423D715F400F88A92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A6362D823D715F400F88A92 /* PBXTargetDependency */,
+			);
+			name = FosdemToGoTests;
+			productName = "fosdem-to-goTests";
+			productReference = 7A6362D623D715F400F88A92 /* FosdemToGoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7A6362E023D715F500F88A92 /* FosdemToGoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A6362F023D715F500F88A92 /* Build configuration list for PBXNativeTarget "FosdemToGoUITests" */;
+			buildPhases = (
+				7A6362DD23D715F500F88A92 /* Sources */,
+				7A6362DE23D715F500F88A92 /* Frameworks */,
+				7A6362DF23D715F500F88A92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A6362E323D715F500F88A92 /* PBXTargetDependency */,
+			);
+			name = FosdemToGoUITests;
+			productName = "fosdem-to-goUITests";
+			productReference = 7A6362E123D715F500F88A92 /* FosdemToGoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		7A6362FA23D7525800F88A92 /* FosdemScheduleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A63630023D7525900F88A92 /* Build configuration list for PBXNativeTarget "FosdemScheduleTests" */;
+			buildPhases = (
+				7A6362F723D7525800F88A92 /* Sources */,
+				7A6362F823D7525800F88A92 /* Frameworks */,
+				7A6362F923D7525800F88A92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FosdemScheduleTests;
+			productName = FosdemScheduleTests;
+			productReference = 7A6362FB23D7525800F88A92 /* FosdemScheduleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A6362B523D715F200F88A92 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Horst Gutmann";
+				TargetAttributes = {
+					7A6362BC23D715F200F88A92 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					7A6362D523D715F400F88A92 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					7A6362E023D715F500F88A92 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					7A6362FA23D7525800F88A92 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 7A6362B823D715F200F88A92 /* Build configuration list for PBXProject "FosdemToGo" */;
+			compatibilityVersion = "Xcode 11.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7A6362B423D715F200F88A92;
+			packageReferences = (
+				7A80D9FE23EDEF260074EEBB /* XCRemoteSwiftPackageReference "ReSwift" */,
+			);
+			productRefGroup = 7A6362BE23D715F200F88A92 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A6362BC23D715F200F88A92 /* FosdemToGo */,
+				7A6362D523D715F400F88A92 /* FosdemToGoTests */,
+				7A6362E023D715F500F88A92 /* FosdemToGoUITests */,
+				7A6362FA23D7525800F88A92 /* FosdemScheduleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A6362BB23D715F200F88A92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A6362D023D715F400F88A92 /* LaunchScreen.storyboard in Resources */,
+				7A6362CD23D715F400F88A92 /* Preview Assets.xcassets in Resources */,
+				7A6362CA23D715F400F88A92 /* Assets.xcassets in Resources */,
+				7AF114EC23EC7D4D00D2CC8E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A6362D423D715F400F88A92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A6362DF23D715F500F88A92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A6362F923D7525800F88A92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A6362B923D715F200F88A92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AF114EA23EC7CA400D2CC8E /* SceneDelegate.swift in Sources */,
+				7A80D9FD23EDB3200074EEBB /* DayViewController.swift in Sources */,
+				7A6362C123D715F200F88A92 /* AppDelegate.swift in Sources */,
+				7A69F56123DB23B000731474 /* UserData.swift in Sources */,
+				7AF114F223ECBA5700D2CC8E /* YearViewController.swift in Sources */,
+				7A80DA0223EDF4050074EEBB /* Actions.swift in Sources */,
+				7AF114F423ECBB0900D2CC8E /* UserSettings.swift in Sources */,
+				7AF114A923EC792800D2CC8E /* ViewController.swift in Sources */,
+				7AF114F023ECAEB800D2CC8E /* ScheduleController.swift in Sources */,
+				7A6362F523D717FB00F88A92 /* FosdemToGo.xcdatamodeld in Sources */,
+				7AF114EE23EC893500D2CC8E /* SettingsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A6362D223D715F400F88A92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A6362DB23D715F500F88A92 /* FosdemToGoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A6362DD23D715F500F88A92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A6362E623D715F500F88A92 /* FosdemToGoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A6362F723D7525800F88A92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A6362FE23D7525900F88A92 /* FosdemScheduleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7A6362D823D715F400F88A92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A6362BC23D715F200F88A92 /* FosdemToGo */;
+			targetProxy = 7A6362D723D715F400F88A92 /* PBXContainerItemProxy */;
+		};
+		7A6362E323D715F500F88A92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A6362BC23D715F200F88A92 /* FosdemToGo */;
+			targetProxy = 7A6362E223D715F500F88A92 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7A6362CE23D715F400F88A92 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A6362CF23D715F400F88A92 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7A6362E823D715F500F88A92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7A6362E923D715F500F88A92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A6362EB23D715F500F88A92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = FosdemToGo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zerokspot.fosdem-to-go";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A6362EC23D715F500F88A92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = FosdemToGo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zerokspot.fosdem-to-go";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7A6362EE23D715F500F88A92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FosdemToGoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zerokspot.FosdemToGoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A6362EF23D715F500F88A92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FosdemToGoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zerokspot.FosdemToGoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7A6362F123D715F500F88A92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FosdemToGoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zerokspot.FosdemToGoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A6362F223D715F500F88A92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FosdemToGoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zerokspot.FosdemToGoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7A63630123D7525900F88A92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = FosdemSchedule/Tests/FosdemScheduleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zerokspot.FosdemScheduleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A63630223D7525900F88A92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = FosdemSchedule/Tests/FosdemScheduleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zerokspot.FosdemScheduleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A6362B823D715F200F88A92 /* Build configuration list for PBXProject "FosdemToGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A6362E823D715F500F88A92 /* Debug */,
+				7A6362E923D715F500F88A92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A6362EA23D715F500F88A92 /* Build configuration list for PBXNativeTarget "FosdemToGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A6362EB23D715F500F88A92 /* Debug */,
+				7A6362EC23D715F500F88A92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A6362ED23D715F500F88A92 /* Build configuration list for PBXNativeTarget "FosdemToGoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A6362EE23D715F500F88A92 /* Debug */,
+				7A6362EF23D715F500F88A92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A6362F023D715F500F88A92 /* Build configuration list for PBXNativeTarget "FosdemToGoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A6362F123D715F500F88A92 /* Debug */,
+				7A6362F223D715F500F88A92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A63630023D7525900F88A92 /* Build configuration list for PBXNativeTarget "FosdemScheduleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A63630123D7525900F88A92 /* Debug */,
+				7A63630223D7525900F88A92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7A80D9FE23EDEF260074EEBB /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7A80D9FA23EDA4230074EEBB /* FosdemSchedule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FosdemSchedule;
+		};
+		7A80D9FF23EDEF260074EEBB /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A80D9FE23EDEF260074EEBB /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		7A6362F323D717FB00F88A92 /* FosdemToGo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7A6362F423D717FB00F88A92 /* fosdem_to_go.xcdatamodel */,
+			);
+			currentVersion = 7A6362F423D717FB00F88A92 /* fosdem_to_go.xcdatamodel */;
+			path = FosdemToGo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7A6362B523D715F200F88A92 /* Project object */;
+}

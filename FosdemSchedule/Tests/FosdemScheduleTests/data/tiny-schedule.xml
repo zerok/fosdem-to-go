@@ -15,5 +15,16 @@
       </event>
     </room>
   </day>
-  <day index="2" date="2020-02-02"></day>
+  <day index="2" date="2020-02-02">
+      <room name="Janson">
+        <event id="9026">
+          <start>09:30</start>
+          <duration>00:25</duration>
+          <title>Welcome to FOSDEM 2020</title>
+          <abstract>abstract</abstract>
+          <track>Track B</track>
+          <description>description</description>
+        </event>
+      </room>
+  </day>
 </schedule>

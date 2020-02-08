@@ -161,6 +161,22 @@ public class FosdemSchedule {
 public struct Schedule{
     public var conference: Conference = Conference()
     public var days: [Day] = []
+    
+    public var tracks: [String] {
+        get {
+            var result: Set<String> = []
+            for day in self.days {
+                for room in day.rooms {
+                    for evt in room.events {
+                        if let track = evt.track {
+                            result.insert(track)
+                        }
+                    }
+                }
+            }
+            return result.sorted()
+        }
+    }
 }
 
 @available(macOS 10.12, *)
@@ -209,6 +225,19 @@ public class Day {
     public var index: Int
     public var date: Date?
     public var rooms: [Room] = []
+    public var tracks: [String] {
+        get {
+            var result: Set<String> = []
+            for room in rooms {
+                for event in room.events {
+                    if let track = event.track {
+                        result.insert(track)
+                    }
+                }
+            }
+            return result.sorted()
+        }
+    }
     
     init() {
         self.index = 0
