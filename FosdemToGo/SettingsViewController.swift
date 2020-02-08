@@ -10,51 +10,48 @@ import Foundation
 import UIKit
 import ReSwift
 
-class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, StoreSubscriber {
-    
+class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, StoreSubscriber {
     typealias StoreSubscriberStateType = AppState
     
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    
-    @IBOutlet var yearPicker: UIPickerView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        yearPicker.delegate = self
-        yearPicker.dataSource = self
-    }
-    
-    func newState(state: AppState) {
-        activityIndicator.startAnimating()
-        if let selectedYear = state.selectedYear {
-            if let idx = mainStore.state.availableYears.firstIndex(of: selectedYear) {
-                yearPicker.selectRow(idx, inComponent: 0, animated: false)
-            }
-        }
-        activityIndicator.stopAnimating()
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    @IBOutlet var tableView: UITableView!
+            
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return mainStore.state.availableYears[row]
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return mainStore.state.availableYears.count
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "item")!
+        cell.textLabel?.text = "Year"
+        cell.detailTextLabel?.text = mainStore.state.selectedYear ?? "..."
+        return cell
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        mainStore.dispatch(AppStateAction.selectYear(mainStore.state.availableYears[row]))
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "pickYear", sender: nil)
     }
     
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+    }
+    
+    func newState(state: AppState) {
+        tableView.reloadData()  
+    }
+
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         mainStore.subscribe(self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         mainStore.unsubscribe(self)
     }
 }

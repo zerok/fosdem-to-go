@@ -220,7 +220,7 @@ public struct Event {
 }
 
 @available(macOS 10.12, *)
-@available(iOS 10, *)
+@available(iOS 10   , *)
 public class Day {
     public var index: Int
     public var date: Date?

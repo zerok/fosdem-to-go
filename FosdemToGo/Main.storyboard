@@ -7,36 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings-->
-        <scene sceneID="gEf-YC-MRa">
-            <objects>
-                <viewController title="Settings" id="b8R-06-ZVV" customClass="SettingsViewController" customModule="FosdemToGo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8g9-x0-o9G">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qGP-eN-aSb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="bDi-Lh-Ngu">
-                                <rect key="frame" x="197" y="429.69260700389123" width="36.999999999999972" height="36.999999999999886"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="0Rj-la-BGM"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="slider.horizontal.3" catalog="system" id="FDc-Zp-msy"/>
-                    <connections>
-                        <outlet property="activityIndicator" destination="bDi-Lh-Ngu" id="Dv7-6j-8HC"/>
-                        <outlet property="yearPicker" destination="qGP-eN-aSb" id="dMq-VL-FWY"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wkh-aF-9uT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="217" y="-431"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="8Q6-HJ-QR3">
             <objects>
@@ -48,7 +18,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="buN-j6-io0" kind="relationship" relationship="viewControllers" id="MPV-CK-ddm"/>
-                        <segue destination="b8R-06-ZVV" kind="relationship" relationship="viewControllers" id="RMX-Sf-ZIj"/>
+                        <segue destination="Sef-Jx-MYP" kind="relationship" relationship="viewControllers" id="XZ2-7v-zZ4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Loq-5g-rv5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -106,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="216" y="225"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Day scene-->
         <scene sceneID="Gbs-zq-pox">
             <objects>
-                <tableViewController id="yHE-do-orn" customClass="DayViewController" customModule="FosdemToGo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="yHE-do-orn" userLabel="Day scene" customClass="DayViewController" customModule="FosdemToGo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vxZ-xE-4GK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,6 +105,119 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDK-Kz-Pw0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1713" y="225"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="HRk-4u-rEU">
+            <objects>
+                <navigationController id="Sef-Jx-MYP" userLabel="Settings" customClass="SettingsNavigationController" customModule="FosdemToGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="slider.horizontal.3" catalog="system" id="0Nt-v3-wjD"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="N2Z-YI-Irw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="A1Y-YL-9Xt" kind="relationship" relationship="rootViewController" id="rtB-Hd-aNl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GqM-VP-smL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="216" y="-449"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="PHb-fb-Go4">
+            <objects>
+                <viewController id="A1Y-YL-9Xt" customClass="SettingsViewController" customModule="FosdemToGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aZf-qJ-4pM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pvk-bS-rb2">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="item" textLabel="riR-jA-6dF" detailTextLabel="vx2-Mk-YAe" style="IBUITableViewCellStyleValue1" id="13x-0u-0hS">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="13x-0u-0hS" id="0z7-g5-j5u">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="riR-jA-6dF">
+                                                    <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vx2-Mk-YAe">
+                                                    <rect key="frame" x="331" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pvk-bS-rb2" firstAttribute="top" secondItem="jaN-rA-gXy" secondAttribute="top" id="1th-wD-p3o"/>
+                            <constraint firstItem="pvk-bS-rb2" firstAttribute="leading" secondItem="aZf-qJ-4pM" secondAttribute="leadingMargin" constant="-20" id="3Y9-2J-fqF"/>
+                            <constraint firstItem="pvk-bS-rb2" firstAttribute="bottom" secondItem="jaN-rA-gXy" secondAttribute="bottom" id="hn7-mK-IIh"/>
+                            <constraint firstItem="pvk-bS-rb2" firstAttribute="trailing" secondItem="aZf-qJ-4pM" secondAttribute="trailingMargin" constant="20" id="p4g-Xb-YGx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jaN-rA-gXy"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="nTT-5f-79q"/>
+                    <connections>
+                        <outlet property="tableView" destination="pvk-bS-rb2" id="TfN-dj-Tov"/>
+                        <segue destination="Ahg-Hg-F3O" kind="show" identifier="pickYear" id="4fn-Tr-iP0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLR-ZH-hCV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="989.85507246376824" y="-453.34821428571428"/>
+        </scene>
+        <!--Select a year-->
+        <scene sceneID="hYD-Bw-KPN">
+            <objects>
+                <tableViewController title="Select a year" id="Ahg-Hg-F3O" customClass="YearSelectionViewController" customModule="FosdemToGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LBJ-dh-qar">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="yearCell" textLabel="TON-Xe-8dT" style="IBUITableViewCellStyleDefault" id="KKQ-rN-r3s">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KKQ-rN-r3s" id="cOf-bp-6Ts">
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TON-Xe-8dT">
+                                            <rect key="frame" x="20" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ahg-Hg-F3O" id="YwW-py-uBX"/>
+                            <outlet property="delegate" destination="Ahg-Hg-F3O" id="ytm-l4-WIu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Pick a year" id="0Ap-jV-xXt"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dSE-N4-rUC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="-449"/>
         </scene>
     </scenes>
     <resources>

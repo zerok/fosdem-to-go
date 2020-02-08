@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A4195D023EF1C9A006A54B2 /* YearSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4195CF23EF1C9A006A54B2 /* YearSelectionViewController.swift */; };
 		7A6362C123D715F200F88A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6362C023D715F200F88A92 /* AppDelegate.swift */; };
 		7A6362CA23D715F400F88A92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A6362C923D715F400F88A92 /* Assets.xcassets */; };
 		7A6362CD23D715F400F88A92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A6362CC23D715F400F88A92 /* Preview Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		7A80D9FD23EDB3200074EEBB /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80D9FC23EDB3200074EEBB /* DayViewController.swift */; };
 		7A80DA0023EDEF260074EEBB /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7A80D9FF23EDEF260074EEBB /* ReSwift */; };
 		7A80DA0223EDF4050074EEBB /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80DA0123EDF4050074EEBB /* Actions.swift */; };
+		7A80DA0423EEC4350074EEBB /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80DA0323EEC4350074EEBB /* SettingsNavigationController.swift */; };
 		7AF114A923EC792800D2CC8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF114A823EC792800D2CC8E /* ViewController.swift */; };
 		7AF114EA23EC7CA400D2CC8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF114E923EC7CA400D2CC8E /* SceneDelegate.swift */; };
 		7AF114EC23EC7D4D00D2CC8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AF114EB23EC7D4D00D2CC8E /* Main.storyboard */; };
@@ -47,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A4195CF23EF1C9A006A54B2 /* YearSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YearSelectionViewController.swift; path = FosdemToGo/YearSelectionViewController.swift; sourceTree = "<group>"; };
 		7A6362BD23D715F200F88A92 /* FosdemToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FosdemToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A6362C023D715F200F88A92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A6362C923D715F400F88A92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		7A69F56023DB23AF00731474 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		7A80D9FC23EDB3200074EEBB /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		7A80DA0123EDF4050074EEBB /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		7A80DA0323EEC4350074EEBB /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		7AF114A823EC792800D2CC8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7AF114E923EC7CA400D2CC8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7AF114EB23EC7D4D00D2CC8E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 		7A6362B423D715F200F88A92 = {
 			isa = PBXGroup;
 			children = (
+				7A4195CF23EF1C9A006A54B2 /* YearSelectionViewController.swift */,
 				7A6362F623D73E1800F88A92 /* FosdemSchedule */,
 				7A6362BF23D715F200F88A92 /* FosdemToGo */,
 				7A6362D923D715F500F88A92 /* FosdemToGoTests */,
@@ -144,6 +149,7 @@
 				7AF114ED23EC893500D2CC8E /* SettingsViewController.swift */,
 				7AF114EF23ECAEB800D2CC8E /* ScheduleController.swift */,
 				7A6362F323D717FB00F88A92 /* FosdemToGo.xcdatamodeld */,
+				7A80DA0323EEC4350074EEBB /* SettingsNavigationController.swift */,
 				7A6362C023D715F200F88A92 /* AppDelegate.swift */,
 				7AF114E923EC7CA400D2CC8E /* SceneDelegate.swift */,
 				7A69F56023DB23AF00731474 /* UserData.swift */,
@@ -366,10 +372,12 @@
 			files = (
 				7AF114EA23EC7CA400D2CC8E /* SceneDelegate.swift in Sources */,
 				7A80D9FD23EDB3200074EEBB /* DayViewController.swift in Sources */,
+				7A80DA0423EEC4350074EEBB /* SettingsNavigationController.swift in Sources */,
 				7A6362C123D715F200F88A92 /* AppDelegate.swift in Sources */,
 				7A69F56123DB23B000731474 /* UserData.swift in Sources */,
 				7AF114F223ECBA5700D2CC8E /* YearViewController.swift in Sources */,
 				7A80DA0223EDF4050074EEBB /* Actions.swift in Sources */,
+				7A4195D023EF1C9A006A54B2 /* YearSelectionViewController.swift in Sources */,
 				7AF114F423ECBB0900D2CC8E /* UserSettings.swift in Sources */,
 				7AF114A923EC792800D2CC8E /* ViewController.swift in Sources */,
 				7AF114F023ECAEB800D2CC8E /* ScheduleController.swift in Sources */,
