@@ -19,11 +19,6 @@ class DayViewController: UITableViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("DayView: View did load with idx: \(dayIdx)")
-    }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

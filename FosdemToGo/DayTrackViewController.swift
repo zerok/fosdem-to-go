@@ -34,6 +34,7 @@ class DayTrackViewController: UITableViewController {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "eventCell")!
         let evt = events[indexPath.row]
         cell.textLabel?.text = evt.title!
+        cell.tag = indexPath.row
         let formatter = DateFormatter()
         formatter.dateStyle = .none
         formatter.timeStyle = .short

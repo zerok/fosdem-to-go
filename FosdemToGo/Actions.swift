@@ -14,4 +14,7 @@ enum AppStateAction: Action{
     case loadAvailableYears
     case selectYear(String)
     case updateSchedule(Schedule, forYear: String)
+    case startScheduleDownload(year: String)
+    case scheduleDownloadFailed(withError: Error)
+    case scheduleDownloadSucceeded(url: URL)
 }

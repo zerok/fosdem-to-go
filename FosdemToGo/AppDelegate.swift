@@ -16,6 +16,10 @@ struct AppState: StateType {
     var availableYears : [String] = []
     var scheduleForYear: String? = nil
     var schedule: Schedule? = nil
+    var scheduleDownloadLoading: Bool = false
+    var scheduleDownloadFailed: Error? = nil
+    var scheduleDownloadSucceeded: Bool = false
+    var scheduleDownloadedTo: URL? = nil
     
     init() {
         selectedYear = UserDefaults.standard.string(forKey: "selectedYear")
@@ -34,6 +38,19 @@ func mainReducer(action: Action, state: AppState?) -> AppState {
         case .updateSchedule(let schedule, forYear: let year):
             state.scheduleForYear = year
             state.schedule = schedule
+        case .startScheduleDownload(year: let year):
+            state.scheduleDownloadLoading = true
+            state.scheduleDownloadFailed = nil
+            state.scheduleDownloadSucceeded = false
+        case .scheduleDownloadFailed(withError: let err):
+            state.scheduleDownloadFailed = err
+            state.scheduleDownloadSucceeded = false
+            state.scheduleDownloadLoading = false
+        case .scheduleDownloadSucceeded(url: let tmpURL):
+            state.scheduleDownloadedTo = tmpURL
+            state.scheduleDownloadLoading = false
+            state.scheduleDownloadFailed = nil
+            state.scheduleDownloadSucceeded = true
         }
     }
     return state
@@ -49,16 +66,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
     func newState(state: AppState) {
         if mainStore.state.scheduleForYear != state.selectedYear {
             let year = mainStore.state.selectedYear!
-            //let asset = NSDataAsset.init(name: NSDataAssetName("2019.xml"))!
-            // Override point for customization after application launch.
-            if let data = NSDataAsset(name: "\(year).xml") {
+            let contentPath = "\(NSHomeDirectory())/Library/Application Support/\(year).xml"
+            let contentURL = URL(fileURLWithPath: contentPath)
+            let downloadURL = URL(string: "https://fosdem.org/\(year)/schedule/xml")!
+            // For now don't update a schedule once we have one:
+            if !FileManager.default.fileExists(atPath: contentPath) && !state.scheduleDownloadLoading && state.scheduleDownloadFailed == nil && !state.scheduleDownloadSucceeded {
+                mainStore.dispatch(AppStateAction.startScheduleDownload(year: year))
+                let task = URLSession.shared.downloadTask(with: downloadURL, completionHandler: {(url,
+                    response, error) in
+                    print("Downloading \(downloadURL)")
+                    if error != nil {
+                        print("Download failed")
+                        mainStore.dispatch(AppStateAction.scheduleDownloadFailed(withError: error!))
+                        return
+                    }
+                    print("Download succeeded")
+
+                    if let url = url {
+                        mainStore.dispatch(AppStateAction.scheduleDownloadSucceeded(url: url))
+                    }
+                })
+                task.resume()
+                return
+            }
+            if !state.scheduleDownloadLoading && state.scheduleDownloadedTo != nil {
+                // Now we move the file to it's final location:
                 do {
-                    let schedule = try FosdemSchedule.shared.load(data: data.data)
+                    print("Source exists? \(FileManager.default.fileExists(atPath: state.scheduleDownloadedTo!.path))")
+                    print("Moving \(state.scheduleDownloadedTo!.path) to \(contentPath)")
+                    try FileManager.default.moveItem(atPath: state.scheduleDownloadedTo!.path, toPath: contentPath)
+                } catch {
+                    print(error)
+                    return
+                }
+            }
+            
+            if FileManager.default.fileExists(atPath: contentPath) {
+                do {
+                    let schedule = try FosdemSchedule.shared.loadFile(url: contentURL)
                     if let schedule = schedule {
                         mainStore.dispatch(AppStateAction.updateSchedule(schedule, forYear: year))
                     }
                 } catch {
-                    NSLog("Failed to load schedule: %s", error.localizedDescription)
+                    print(error)
                 }
             }
         }

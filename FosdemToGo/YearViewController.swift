@@ -22,7 +22,7 @@ class YearViewController: UITableViewController, StoreSubscriber {
     
     func newState(state: AppState) {
         self.title = state.selectedYear
-        self.loadView()
+        tableView.reloadData()
     }
     
     var schedule: Schedule? {
@@ -59,7 +59,6 @@ class YearViewController: UITableViewController, StoreSubscriber {
             if let schedule = schedule {
                 dvc.title = schedule.days[dayIdx].description
             }
-            print("Setting index to \(dayIdx)")
             dvc.dayIdx = dayIdx
         }
     }
