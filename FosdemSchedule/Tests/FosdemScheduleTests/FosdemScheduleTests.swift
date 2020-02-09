@@ -34,6 +34,10 @@ final class FosdemScheduleTests: XCTestCase {
         XCTAssertEqual(schedule.days[0].tracks, ["Track A"])
         
         // Day 1 should have at least one room associated with it:
+        let start = "2020-02-01T09:30:00+01:00"
+        let end = "2020-02-01T09:55:00+01:00"
+        let startDate = formatter.date(from: start)!
+        let endDate = formatter.date(from: end)!
         let rooms = schedule.days[0].rooms
         XCTAssertGreaterThan(rooms.count, 0)
         if !rooms.isEmpty {
@@ -49,16 +53,13 @@ final class FosdemScheduleTests: XCTestCase {
                 XCTAssertNotNil(firstEvent.description)
                 XCTAssertEqual(firstEvent.track, "Track A")
                 
-                let start = "2020-02-01T09:30:00+01:00"
-                let end = "2020-02-01T09:55:00+01:00"
-                let startDate = formatter.date(from: start)!
-                let endDate = formatter.date(from: end)!
                 XCTAssertEqual(firstEvent.interval?.start, startDate)
                 XCTAssertEqual(firstEvent.interval?.end, endDate)
             }
         }
         
         XCTAssertEqual(schedule.tracks, ["Track A", "Track B"])
+        XCTAssertEqual(schedule.days[0].getEvents(forTrack: "Track A"), rooms[0].events)
     }
 
     static var allTests = [

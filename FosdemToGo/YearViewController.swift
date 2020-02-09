@@ -14,7 +14,6 @@ import ReSwift
 class YearViewController: UITableViewController, StoreSubscriber {
     typealias StoreSubscriberStateType = AppState
     
-    var dayIdx : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
@@ -49,16 +48,20 @@ class YearViewController: UITableViewController, StoreSubscriber {
         if let schedule = self.schedule {
             cell.textLabel?.text = schedule.days[indexPath.row].description
         }
+        cell.tag = indexPath.row
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.dayIdx = indexPath.row
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dvc = segue.destination as! DayViewController
-        dvc.dayIdx = self.dayIdx
+        if let cell = sender as? UITableViewCell {
+            let dayIdx = cell.tag
+            let dvc = segue.destination as! DayViewController
+            if let schedule = schedule {
+                dvc.title = schedule.days[dayIdx].description
+            }
+            print("Setting index to \(dayIdx)")
+            dvc.dayIdx = dayIdx
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

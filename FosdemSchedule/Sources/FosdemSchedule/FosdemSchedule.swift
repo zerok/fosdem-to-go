@@ -210,7 +210,7 @@ public struct Conference {
 
 @available(macOS 10.12, *)
 @available(iOS 10, *)
-public struct Event {
+public struct Event: Equatable {
     public var title: String? = nil
     public var id: String? = nil
     public var abstract: String? = nil
@@ -237,6 +237,18 @@ public class Day {
             }
             return result.sorted()
         }
+    }
+    
+    public func getEvents(forTrack track: String) -> [Event] {
+        var result: [Event] = []
+        for room in rooms {
+            for event in room.events {
+                if event.track == track {
+                    result.append(event)
+                }
+            }
+        }
+        return result
     }
     
     init() {

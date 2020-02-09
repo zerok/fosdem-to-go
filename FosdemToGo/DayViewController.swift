@@ -12,15 +12,16 @@ import FosdemSchedule
 
 class DayViewController: UITableViewController {
     var dayIdx: Int = 0
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.title = self.schedule!.days[self.dayIdx].description
-    }
-    
+
     var schedule: Schedule? {
         get {
             return mainStore.state.schedule
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("DayView: View did load with idx: \(dayIdx)")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -34,6 +35,18 @@ class DayViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "room")!
         cell.textLabel?.text = self.schedule!.days[self.dayIdx].tracks[indexPath.row]
+        cell.tag = indexPath.row
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell {
+            let destination = segue.destination as! DayTrackViewController
+            if let cell = sender as? UITableViewCell {
+                destination.title = cell.textLabel?.text
+            }
+            destination.dayIdx = self.dayIdx
+            destination.trackIdx = cell.tag
+        }
     }
 }
