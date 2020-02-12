@@ -44,4 +44,16 @@ class DayTrackViewController: UITableViewController {
         }
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cell = sender as?  UITableViewCell else {
+            print("Sender is not a cell but a \(sender)")
+            return
+        }
+        guard let destination = segue.destination as? TalkDetailsViewController else {
+            print("Unexpected destination \(segue.destination)")
+            return
+        }
+        destination.event = self.events[cell.tag]
+    }
 }

@@ -254,6 +254,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="nXM-FI-UKM" kind="show" id="GnS-1S-ebS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -267,9 +270,99 @@
             </objects>
             <point key="canvasLocation" x="2458" y="225"/>
         </scene>
+        <!--Talk Details View Controller-->
+        <scene sceneID="gnH-xI-w8d">
+            <objects>
+                <viewController id="nXM-FI-UKM" customClass="TalkDetailsViewController" customModule="FosdemToGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oRe-CP-kgY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLc-8h-N9f">
+                                <rect key="frame" x="20" y="88" width="374" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="Fix-uV-Pd0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="pLQ-N1-a5l">
+                                <rect key="frame" x="20" y="244" width="374" height="297"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jVv-LT-vuV">
+                                <rect key="frame" x="234" y="209" width="20" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="bYT-Rm-FIs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="5ci-5j-gwW">
+                                <rect key="frame" x="48" y="204" width="132" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="B01-rd-duE"/>
+                                    <constraint firstAttribute="width" constant="132" id="mWn-B4-Acy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="5WS-l4-84o">
+                                <rect key="frame" x="262" y="204" width="132" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="location" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GWt-hN-6Vf">
+                                <rect key="frame" x="20" y="209" width="20" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="3yy-qg-fiy"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nLc-8h-N9f" firstAttribute="leading" secondItem="GWt-hN-6Vf" secondAttribute="leading" id="2dw-Wy-Gb0"/>
+                            <constraint firstItem="5ci-5j-gwW" firstAttribute="firstBaseline" secondItem="5WS-l4-84o" secondAttribute="firstBaseline" id="4dE-L5-Xz6"/>
+                            <constraint firstItem="nLc-8h-N9f" firstAttribute="top" secondItem="H4N-V4-qB7" secondAttribute="top" id="9i1-kq-OmI"/>
+                            <constraint firstItem="GWt-hN-6Vf" firstAttribute="top" secondItem="nLc-8h-N9f" secondAttribute="bottom" constant="8.5" id="Bet-O4-ISn"/>
+                            <constraint firstItem="GWt-hN-6Vf" firstAttribute="leading" secondItem="pLQ-N1-a5l" secondAttribute="leading" id="ERk-vE-MDC"/>
+                            <constraint firstItem="5WS-l4-84o" firstAttribute="leading" secondItem="jVv-LT-vuV" secondAttribute="trailing" constant="8" id="MgV-Rf-w4Q"/>
+                            <constraint firstItem="nLc-8h-N9f" firstAttribute="leading" secondItem="oRe-CP-kgY" secondAttribute="leadingMargin" id="Nby-c9-VoS"/>
+                            <constraint firstItem="GWt-hN-6Vf" firstAttribute="top" secondItem="jVv-LT-vuV" secondAttribute="top" id="OXq-Mb-Qw1"/>
+                            <constraint firstItem="5ci-5j-gwW" firstAttribute="leading" secondItem="GWt-hN-6Vf" secondAttribute="trailing" constant="8" id="Uwy-yb-lcV"/>
+                            <constraint firstItem="5ci-5j-gwW" firstAttribute="top" secondItem="nLc-8h-N9f" secondAttribute="bottom" constant="4" id="gia-Xe-QZZ"/>
+                            <constraint firstItem="jVv-LT-vuV" firstAttribute="leading" secondItem="5ci-5j-gwW" secondAttribute="trailing" constant="54" id="k2Z-rd-1w2"/>
+                            <constraint firstItem="GWt-hN-6Vf" firstAttribute="bottom" secondItem="jVv-LT-vuV" secondAttribute="bottom" id="lYL-iV-ZBH"/>
+                            <constraint firstItem="nLc-8h-N9f" firstAttribute="trailing" secondItem="5WS-l4-84o" secondAttribute="trailing" id="lbI-l5-h4z"/>
+                            <constraint firstItem="H4N-V4-qB7" firstAttribute="bottom" secondItem="pLQ-N1-a5l" secondAttribute="bottom" constant="272" id="m4s-d9-ZBP"/>
+                            <constraint firstItem="5ci-5j-gwW" firstAttribute="baseline" secondItem="5WS-l4-84o" secondAttribute="baseline" id="oaJ-2a-XAe"/>
+                            <constraint firstItem="5WS-l4-84o" firstAttribute="trailing" secondItem="pLQ-N1-a5l" secondAttribute="trailing" id="ogP-S7-7TL"/>
+                            <constraint firstItem="GWt-hN-6Vf" firstAttribute="centerY" secondItem="5ci-5j-gwW" secondAttribute="centerY" id="qA5-Kv-qen"/>
+                            <constraint firstItem="nLc-8h-N9f" firstAttribute="trailing" secondItem="oRe-CP-kgY" secondAttribute="trailingMargin" id="wMu-AV-mug"/>
+                            <constraint firstItem="pLQ-N1-a5l" firstAttribute="top" secondItem="5ci-5j-gwW" secondAttribute="bottom" constant="12" id="ydf-fU-nrH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H4N-V4-qB7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BQl-7P-IJG"/>
+                    <connections>
+                        <outlet property="abstractView" destination="pLQ-N1-a5l" id="Aum-XC-91l"/>
+                        <outlet property="roomNameView" destination="5ci-5j-gwW" id="j9p-Rc-uD7"/>
+                        <outlet property="timeView" destination="5WS-l4-84o" id="ULh-3X-sU9"/>
+                        <outlet property="titleView" destination="nLc-8h-N9f" id="igk-0J-LZN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Plw-Iz-Klf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3208.6956521739135" y="225.66964285714283"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="64" height="52"/>
+        <image name="clock" catalog="system" width="64" height="60"/>
+        <image name="location" catalog="system" width="64" height="56"/>
         <image name="slider.horizontal.3" catalog="system" width="64" height="50"/>
     </resources>
 </document>

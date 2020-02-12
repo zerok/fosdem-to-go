@@ -60,6 +60,7 @@ final class FosdemScheduleTests: XCTestCase {
         
         XCTAssertEqual(schedule.tracks, ["Track A", "Track B"])
         XCTAssertEqual(schedule.days[0].getEvents(forTrack: "Track A"), rooms[0].events)
+        XCTAssertEqual(schedule.days[0].getEvents(forTrack: "Track A")[0].roomName, rooms[0].name)
     }
 
     static var allTests = [

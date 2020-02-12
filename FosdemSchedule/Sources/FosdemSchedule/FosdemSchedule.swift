@@ -105,6 +105,7 @@ class ScheduleParserDelegate: NSObject, XMLParserDelegate {
                 let dur = self.currentDuration {
                 self.currentEvent.interval = DateInterval(start: start, duration: dur)
             }
+            self.currentEvent.roomName = self.currentRoom.name
             self.currentRoom.events.append(self.currentEvent)
             self.currentEvent = Event()
             self.inEvent = false
@@ -217,6 +218,7 @@ public struct Event: Equatable {
     public var description: String? = nil
     public var interval: DateInterval? = nil
     public var track: String? = nil
+    public var roomName: String? = nil
 }
 
 @available(macOS 10.12, *)
