@@ -21,8 +21,10 @@ class YearViewController: UITableViewController, StoreSubscriber {
     }
     
     func newState(state: AppState) {
-        self.title = state.selectedYear
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.title = state.selectedYear
+            self.tableView.reloadData()
+        }
     }
     
     var schedule: Schedule? {

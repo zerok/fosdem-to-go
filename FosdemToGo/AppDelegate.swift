@@ -66,7 +66,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
     func newState(state: AppState) {
         if mainStore.state.scheduleForYear != state.selectedYear {
             let year = mainStore.state.selectedYear!
-            let contentPath = "\(NSHomeDirectory())/Library/Application Support/\(year).xml"
+            let appSupportPath = "\(NSHomeDirectory())/Library/Application Support"
+            let contentPath = "\(appSupportPath)/\(year).xml"
+            do {
+                try FileManager.default.createDirectory(atPath: appSupportPath, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                NSLog("Failed to create content directory: \(error)")
+                return
+            }
             let contentURL = URL(fileURLWithPath: contentPath)
             let downloadURL = URL(string: "https://fosdem.org/\(year)/schedule/xml")!
             // For now don't update a schedule once we have one:
@@ -93,6 +100,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
                 // Now we move the file to it's final location:
                 do {
                     print("Source exists? \(FileManager.default.fileExists(atPath: state.scheduleDownloadedTo!.path))")
+                    if !FileManager.default.fileExists(atPath: state.scheduleDownloadedTo!.path) {
+                        return
+                    }
                     print("Moving \(state.scheduleDownloadedTo!.path) to \(contentPath)")
                     try FileManager.default.moveItem(atPath: state.scheduleDownloadedTo!.path, toPath: contentPath)
                 } catch {
@@ -119,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         mainStore.dispatch(AppStateAction.loadAvailableYears)
         mainStore.subscribe(self)
-        mainStore.dispatch(AppStateAction.selectYear(mainStore.state.selectedYear!))
+        mainStore.dispatch(AppStateAction.selectYear(mainStore.state.selectedYear ?? "2020"))
         return true
     }
 
