@@ -20,9 +20,14 @@ struct AppState: StateType {
     var scheduleDownloadFailed: Error? = nil
     var scheduleDownloadSucceeded: Bool = false
     var scheduleDownloadedTo: URL? = nil
+    var bookmarkedEvents: Set<String> = Set<String>()
     
     init() {
         selectedYear = UserDefaults.standard.string(forKey: "selectedYear")
+        if let bm = UserDefaults.standard.object(forKey: "bookmarks") {
+            let bookmarks = bm as! [String]
+            self.bookmarkedEvents = self.bookmarkedEvents.union(bookmarks)
+        }
     }
 }
 
@@ -38,7 +43,7 @@ func mainReducer(action: Action, state: AppState?) -> AppState {
         case .updateSchedule(let schedule, forYear: let year):
             state.scheduleForYear = year
             state.schedule = schedule
-        case .startScheduleDownload(year: let year):
+        case .startScheduleDownload(year: _):
             state.scheduleDownloadLoading = true
             state.scheduleDownloadFailed = nil
             state.scheduleDownloadSucceeded = false
@@ -51,6 +56,14 @@ func mainReducer(action: Action, state: AppState?) -> AppState {
             state.scheduleDownloadLoading = false
             state.scheduleDownloadFailed = nil
             state.scheduleDownloadSucceeded = true
+        case .addEventToBookmarks(year: let year, id: let id):
+            let fullID = "\(year):\(id)"
+            state.bookmarkedEvents.insert(fullID)
+            UserDefaults.standard.set(state.bookmarkedEvents.sorted(), forKey: "bookmarks")
+        case .removeEventFromBookmarks(year: let year, id: let id):
+            let fullID = "\(year):\(id)"
+            state.bookmarkedEvents.remove(fullID)
+            UserDefaults.standard.set(state.bookmarkedEvents.sorted(), forKey: "bookmarks")
         }
     }
     return state

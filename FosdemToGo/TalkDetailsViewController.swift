@@ -10,8 +10,25 @@ import Foundation
 import UIKit
 import FosdemSchedule
 import WebKit
+import ReSwift
 
-class TalkDetailsViewController: UIViewController {
+class TalkDetailsViewController: UIViewController, StoreSubscriber {
+    var isBookmarked: Bool {
+        get {
+            let fullID = "\(mainStore.state.selectedYear!):\(self.event!.id!)"
+            return mainStore.state.bookmarkedEvents.contains(fullID)
+        }
+    }
+    func newState(state: AppState) {
+        if isBookmarked {
+            self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "bookmark.fill")
+        } else {
+            self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "bookmark")
+        }
+    }
+    
+    typealias StoreSubscriberStateType = AppState
+    
     var event: Event?
 
     @IBOutlet var titleView: UILabel!
@@ -21,14 +38,22 @@ class TalkDetailsViewController: UIViewController {
     @IBOutlet var roomNameView: UILabel!
     
     @IBOutlet var timeView: UILabel!
+    
+    @objc func toggleBookmark(sender: UIBarButtonItem) {
+        if isBookmarked {
+        mainStore.dispatch(AppStateAction.removeEventFromBookmarks(year: mainStore.state.selectedYear!, id: self.event!.id!))
+        } else {
+        mainStore.dispatch(AppStateAction.addEventToBookmarks(year: mainStore.state.selectedYear!, id: self.event!.id!))
+        }
+    }
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let button = UIBarButtonItem()
-        button.image = UIImage(systemName: "bookmark")
-        button.title = "Bookmark"
+        mainStore.subscribe(self)
+        let button = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .plain, target: self, action: #selector(TalkDetailsViewController.toggleBookmark(sender:)))
         self.navigationItem.rightBarButtonItem = button
         self.navigationItem.largeTitleDisplayMode = .never
+        self.newState(state: mainStore.state)
         guard let event = self.event else { return }
         self.titleView.text = event.title
         self.abstractView.text = event.abstract?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
@@ -44,4 +69,10 @@ class TalkDetailsViewController: UIViewController {
             self.timeView.text = "?"
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        mainStore.unsubscribe(self)
+    }
+
 }
