@@ -18,6 +18,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="buN-j6-io0" kind="relationship" relationship="viewControllers" id="MPV-CK-ddm"/>
+                        <segue destination="WKO-j9-ia2" kind="relationship" relationship="viewControllers" id="xe4-WR-k8V"/>
                         <segue destination="Sef-Jx-MYP" kind="relationship" relationship="viewControllers" id="XZ2-7v-zZ4"/>
                     </connections>
                 </tabBarController>
@@ -57,6 +58,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxL-u4-jdP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="988" y="225"/>
+        </scene>
+        <!--Your schedule-->
+        <scene sceneID="Ec7-OU-wlt">
+            <objects>
+                <tableViewController id="3Ss-Ou-pJV" customClass="UserScheduleViewController" customModule="FosdemToGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vOz-Az-EVm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="talkCell" textLabel="doM-5g-U3h" detailTextLabel="oXe-v6-DNj" style="IBUITableViewCellStyleSubtitle" id="5vI-qW-nmG" customClass="EventTableCell" customModule="FosdemToGo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5vI-qW-nmG" id="s06-3e-OoG">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="doM-5g-U3h">
+                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oXe-v6-DNj">
+                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Location" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QTh-yL-JDb">
+                                            <rect key="frame" x="230" y="32" width="126" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="locationLabel" destination="QTh-yL-JDb" id="WMW-in-LOC"/>
+                                    <segue destination="nXM-FI-UKM" kind="show" id="HGT-xy-aFp"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3Ss-Ou-pJV" id="IuP-E7-XNg"/>
+                            <outlet property="delegate" destination="3Ss-Ou-pJV" id="FtP-gs-BXq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Your schedule" id="hNX-T7-oSm"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5o-gG-ttZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1137.68115942029" y="969.64285714285711"/>
+        </scene>
+        <!--Bookmarks-->
+        <scene sceneID="SGo-na-Ncx">
+            <objects>
+                <navigationController id="WKO-j9-ia2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bookmarks" image="bookmark" catalog="system" id="yPi-dE-RD1"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="s3q-To-c3Z">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3Ss-Ou-pJV" kind="relationship" relationship="rootViewController" id="2hw-EB-ZKg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lV8-om-Up1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="220" y="970"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="eq0-oQ-Eno">
@@ -350,7 +424,7 @@
                     <connections>
                         <outlet property="abstractView" destination="pLQ-N1-a5l" id="Aum-XC-91l"/>
                         <outlet property="roomNameView" destination="5ci-5j-gwW" id="j9p-Rc-uD7"/>
-                        <outlet property="timeView" destination="5WS-l4-84o" id="ULh-3X-sU9"/>
+                        <outlet property="timeView" destination="5WS-l4-84o" id="g9u-cV-8jD"/>
                         <outlet property="titleView" destination="nLc-8h-N9f" id="igk-0J-LZN"/>
                     </connections>
                 </viewController>
@@ -360,9 +434,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bookmark" catalog="system" width="56" height="64"/>
         <image name="calendar" catalog="system" width="64" height="52"/>
         <image name="clock" catalog="system" width="64" height="60"/>
         <image name="location" catalog="system" width="64" height="56"/>
         <image name="slider.horizontal.3" catalog="system" width="64" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="HGT-xy-aFp"/>
+    </inferredMetricsTieBreakers>
 </document>

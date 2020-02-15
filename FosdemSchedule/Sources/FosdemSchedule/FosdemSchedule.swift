@@ -163,6 +163,19 @@ public struct Schedule{
     public var conference: Conference = Conference()
     public var days: [Day] = []
     
+    public func event(forId id: String) -> Event? {
+        for day in self.days {
+            for room in day.rooms {
+                for event in room.events {
+                    if event.id == id {
+                        return event
+                    }
+                }
+            }
+        }
+        return nil
+    }
+    
     public var tracks: [String] {
         get {
             var result: Set<String> = []
