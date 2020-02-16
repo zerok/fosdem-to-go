@@ -46,6 +46,13 @@ class TalkDetailsViewController: UIViewController, StoreSubscriber {
         mainStore.dispatch(AppStateAction.addEventToBookmarks(year: mainStore.state.selectedYear!, id: self.event!.id!))
         }
     }
+    
+    @objc func onTitleTap(_ sender: UILabel) {
+        guard let u = URL(string: "https://fosdem.org/\(mainStore.state.selectedYear ?? "no-year")/schedule/event/\(self.event?.slug ?? "no-slug")/") else {
+            return
+        }
+        UIApplication.shared.open(u)
+    }
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -56,6 +63,9 @@ class TalkDetailsViewController: UIViewController, StoreSubscriber {
         self.newState(state: mainStore.state)
         guard let event = self.event else { return }
         self.titleView.text = event.title
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.onTitleTap(_:)))
+        self.titleView.isUserInteractionEnabled = true
+        self.titleView.addGestureRecognizer(tap)
         self.abstractView.text = event.abstract?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
         self.roomNameView.text = event.roomName
         let timeFormatter = DateFormatter()

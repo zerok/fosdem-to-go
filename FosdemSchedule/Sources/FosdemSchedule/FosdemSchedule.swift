@@ -95,6 +95,8 @@ class ScheduleParserDelegate: NSObject, XMLParserDelegate {
                 let seconds = Int64(Calendar.current.component(.hour, from: d) * 60 * 60 + Calendar.current.component(.minute, from: d) * 60)
                 self.currentDuration = TimeInterval(integerLiteral: seconds)
             }
+        case "slug":
+            self.currentEvent.slug = self.string
         case "room":
             if !self.inEvent {
                 self.currentDay.rooms.append(self.currentRoom)
@@ -232,6 +234,7 @@ public struct Event: Equatable {
     public var interval: DateInterval? = nil
     public var track: String? = nil
     public var roomName: String? = nil
+    public var slug: String? = nil
 }
 
 @available(macOS 10.12, *)
