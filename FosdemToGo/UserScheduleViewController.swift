@@ -19,6 +19,7 @@ class UserScheduleViewController: UITableViewController, StoreSubscriber {
     var eventsPerDay: Dictionary<String, [Event]> = Dictionary<String, [Event]>()
     
     func newState(state: AppState) {
+        guard let schedule = state.schedule else { return }
         days = []
         eventsPerDay = Dictionary<String, [Event]>()
         bookmarks = state.bookmarkedEvents.sorted().filter({ (id: String) in
@@ -34,7 +35,7 @@ class UserScheduleViewController: UITableViewController, StoreSubscriber {
             return String(id.split(separator: ":")[1])
         })
         events = bookmarks.map({ (id: String) in
-            return state.schedule!.event(forId: id)!
+            return schedule.event(forId: id)!
         }).sorted(by: {
             if let i1 = $0.interval, let i2 = $1.interval {
                 return i1.start < i2.start

@@ -29,8 +29,13 @@ class DayViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "room")!
-        cell.textLabel?.text = self.schedule!.days[self.dayIdx].tracks[indexPath.row]
-        cell.tag = indexPath.row
+        guard let schedule = self.schedule else { return cell }
+        if self.dayIdx < schedule.days.count {
+            let day = schedule.days[self.dayIdx]
+            guard indexPath.row < day.tracks.count else { return cell }
+            cell.textLabel?.text = self.schedule!.days[self.dayIdx].tracks[indexPath.row]
+            cell.tag = indexPath.row
+        }
         return cell
     }
     

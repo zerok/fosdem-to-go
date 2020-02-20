@@ -36,7 +36,9 @@ func mainReducer(action: Action, state: AppState?) -> AppState {
     if let action = action as? AppStateAction {
         switch action {
         case .loadAvailableYears:
-            state.availableYears = ["2019", "2020"]
+            state.availableYears = (2012...2020).map({(year: Int) -> String in
+                return String(year)
+            })
         case .selectYear(let year):
             state.selectedYear = year
             UserDefaults.standard.set(year, forKey: "selectedYear")

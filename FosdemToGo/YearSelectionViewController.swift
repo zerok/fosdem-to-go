@@ -37,6 +37,7 @@ class YearSelectionViewController: UITableViewController, StoreSubscriber {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let yearName = mainStore.state.availableYears[indexPath.row]
         mainStore.dispatch(AppStateAction.selectYear(yearName))
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
