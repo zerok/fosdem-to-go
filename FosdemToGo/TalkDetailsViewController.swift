@@ -53,6 +53,17 @@ class TalkDetailsViewController: UIViewController, StoreSubscriber {
         }
         UIApplication.shared.open(u)
     }
+    
+    @objc func onRoomNameTap(_ sender: UILabel) {
+        guard let roomName = self.event?.roomName else { return }
+        let normalizedName = roomName.split(separator: " ")[0].filter({
+            return $0.isLetter || $0.isNumber
+        }).lowercased()
+        guard let u = URL(string: "https://nav.fosdem.org/l/\(normalizedName)") else {
+            return
+        }
+        UIApplication.shared.open(u)
+    }
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -68,6 +79,8 @@ class TalkDetailsViewController: UIViewController, StoreSubscriber {
         self.titleView.addGestureRecognizer(tap)
         self.abstractView.text = event.abstract?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
         self.roomNameView.text = event.roomName
+        self.roomNameView.isUserInteractionEnabled = true
+        self.roomNameView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.onRoomNameTap(_:))))
         let timeFormatter = DateFormatter()
         timeFormatter.dateStyle = .none
         timeFormatter.timeStyle = .short
