@@ -18,7 +18,7 @@ struct AppState: StateType {
     var schedule: Schedule? = nil
     var scheduleDownloadLoading: Bool = false
     var scheduleDownloadFailed: Error? = nil
-    var scheduleDownloadSucceeded: Bool = false
+    var scheduleDownloadSucceeded: Bool? = nil
     var scheduleDownloadedTo: URL? = nil
     var bookmarkedEvents: Set<String> = Set<String>()
     
@@ -45,14 +45,19 @@ func mainReducer(action: Action, state: AppState?) -> AppState {
         case .updateSchedule(let schedule, forYear: let year):
             state.scheduleForYear = year
             state.schedule = schedule
+            state.scheduleDownloadSucceeded = nil
+            state.scheduleDownloadFailed = nil
+            state.scheduleDownloadedTo = nil
         case .startScheduleDownload(year: _):
             state.scheduleDownloadLoading = true
             state.scheduleDownloadFailed = nil
-            state.scheduleDownloadSucceeded = false
+            state.scheduleDownloadSucceeded = nil
+            state.scheduleDownloadedTo = nil
         case .scheduleDownloadFailed(withError: let err):
             state.scheduleDownloadFailed = err
             state.scheduleDownloadSucceeded = false
             state.scheduleDownloadLoading = false
+            state.scheduleDownloadedTo = nil
         case .scheduleDownloadSucceeded(url: let tmpURL):
             state.scheduleDownloadedTo = tmpURL
             state.scheduleDownloadLoading = false
@@ -79,8 +84,9 @@ let mainStore = Store<AppState>(
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
     func newState(state: AppState) {
-        if mainStore.state.scheduleForYear != state.selectedYear {
-            let year = mainStore.state.selectedYear!
+        if state.scheduleForYear != state.selectedYear {
+            print("Current year (\(state.scheduleForYear)) does not match selected year (\(state.selectedYear))")
+            let year = state.selectedYear!
             let appSupportPath = "\(NSHomeDirectory())/Library/Application Support"
             let contentPath = "\(appSupportPath)/\(year).xml"
             do {
@@ -91,9 +97,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
             }
             let contentURL = URL(fileURLWithPath: contentPath)
             let downloadURL = URL(string: "https://fosdem.org/\(year)/schedule/xml")!
-            // For now don't update a schedule once we have one:
-            if !FileManager.default.fileExists(atPath: contentPath) && !state.scheduleDownloadLoading && state.scheduleDownloadFailed == nil && !state.scheduleDownloadSucceeded {
+            let fileExists = FileManager.default.fileExists(atPath: contentPath)
+            print("File exists? \(fileExists) Downloading? \(state.scheduleDownloadLoading) Failed? \(state.scheduleDownloadFailed) Succeeded? \(state.scheduleDownloadSucceeded)")
+            if !fileExists && !state.scheduleDownloadLoading && state.scheduleDownloadFailed == nil && state.scheduleDownloadSucceeded  == nil {
                 mainStore.dispatch(AppStateAction.startScheduleDownload(year: year))
+                print("Starting download")
                 let task = URLSession.shared.downloadTask(with: downloadURL, completionHandler: {(url,
                     response, error) in
                     print("Downloading \(downloadURL)")
@@ -102,9 +110,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
                         mainStore.dispatch(AppStateAction.scheduleDownloadFailed(withError: error!))
                         return
                     }
-                    print("Download succeeded")
-
                     if let url = url {
+                        print("Download succeeded")
+
                         mainStore.dispatch(AppStateAction.scheduleDownloadSucceeded(url: url))
                     }
                 })
@@ -130,6 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
                 do {
                     let schedule = try FosdemSchedule.shared.loadFile(url: contentURL)
                     if let schedule = schedule {
+                        print("Schedule updated")
                         mainStore.dispatch(AppStateAction.updateSchedule(schedule, forYear: year))
                     }
                 } catch {

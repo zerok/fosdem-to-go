@@ -46,7 +46,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func newState(state: AppState) {
-        tableView.reloadData()  
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

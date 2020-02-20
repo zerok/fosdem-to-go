@@ -13,7 +13,7 @@ import ReSwift
 
 class YearViewController: UITableViewController, StoreSubscriber {
     typealias StoreSubscriberStateType = AppState
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
@@ -22,6 +22,13 @@ class YearViewController: UITableViewController, StoreSubscriber {
     
     func newState(state: AppState) {
         DispatchQueue.main.async {
+            if state.scheduleDownloadLoading {
+                LoadingIndicator.shared.show(viewController: self)
+                return
+            }
+            if !state.scheduleDownloadLoading || state.schedule != nil {
+                LoadingIndicator.shared.hide()
+            }
             self.title = state.selectedYear
             self.tableView.reloadData()
         }

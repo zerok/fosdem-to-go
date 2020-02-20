@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7A07CBCA23F48DF8009612DE /* TalkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A07CBC923F48DF8009612DE /* TalkDetailsViewController.swift */; };
+		7A0CFB1923FE9C2C0009D98C /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CFB1823FE9C2C0009D98C /* LoadingIndicator.swift */; };
 		7A4195D023EF1C9A006A54B2 /* YearSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4195CF23EF1C9A006A54B2 /* YearSelectionViewController.swift */; };
 		7A4195D223EF50C9006A54B2 /* DayTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4195D123EF50C9006A54B2 /* DayTrackViewController.swift */; };
 		7A6362C123D715F200F88A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6362C023D715F200F88A92 /* AppDelegate.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		7A07CBC923F48DF8009612DE /* TalkDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkDetailsViewController.swift; sourceTree = "<group>"; };
+		7A0CFB1823FE9C2C0009D98C /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		7A4195CF23EF1C9A006A54B2 /* YearSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearSelectionViewController.swift; sourceTree = "<group>"; };
 		7A4195D123EF50C9006A54B2 /* DayTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTrackViewController.swift; sourceTree = "<group>"; };
 		7A6362BD23D715F200F88A92 /* FosdemToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FosdemToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +173,7 @@
 				7AF114EB23EC7D4D00D2CC8E /* Main.storyboard */,
 				7A6362CB23D715F400F88A92 /* Preview Content */,
 				7A80DA0123EDF4050074EEBB /* Actions.swift */,
+				7A0CFB1823FE9C2C0009D98C /* LoadingIndicator.swift */,
 			);
 			path = FosdemToGo;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A0CFB1923FE9C2C0009D98C /* LoadingIndicator.swift in Sources */,
 				7AF114EA23EC7CA400D2CC8E /* SceneDelegate.swift in Sources */,
 				7A80D9FD23EDB3200074EEBB /* DayViewController.swift in Sources */,
 				7A80DA0423EEC4350074EEBB /* SettingsNavigationController.swift in Sources */,
