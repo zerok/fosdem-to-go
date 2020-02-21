@@ -33,7 +33,7 @@ class TalkDetailsViewController: UIViewController, StoreSubscriber {
 
     @IBOutlet var titleView: UILabel!
     
-    @IBOutlet var abstractView: UILabel!
+    @IBOutlet var abstractView: UITextView!
     
     @IBOutlet var roomNameView: UILabel!
     
