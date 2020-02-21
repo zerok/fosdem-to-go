@@ -23,8 +23,11 @@ class YearSelectionViewController: UITableViewController, StoreSubscriber {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "yearCell")!
         let yearName = mainStore.state.availableYears[indexPath.row]
+        let cell = ScheduleFileManager.shared.isAvailable(year: yearName) ? tableView.dequeueReusableCell(withIdentifier: "yearCell")!
+            :
+            tableView.dequeueReusableCell(withIdentifier: "disabledYearCell")!
+        
         cell.textLabel?.text = yearName
         if yearName == mainStore.state.selectedYear {
             cell.accessoryType = .checkmark
@@ -38,6 +41,20 @@ class YearSelectionViewController: UITableViewController, StoreSubscriber {
         let yearName = mainStore.state.availableYears[indexPath.row]
         mainStore.dispatch(AppStateAction.selectYear(yearName))
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        guard let nwStatus = mainStore.state.networkStatus else { return nil }
+        let yearName = mainStore.state.availableYears[indexPath.row]
+        if ScheduleFileManager.shared.isAvailable(year: yearName) {
+            return indexPath
+        }
+        
+        if nwStatus.status == .unsatisfied {
+            OfflineModeAlert.shared.show(viewController: self)
+            return nil
+        }
+        return indexPath
     }
     
     override func viewWillAppear(_ animated: Bool) {

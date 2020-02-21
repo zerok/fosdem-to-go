@@ -17,7 +17,6 @@ public class LoadingIndicator {
     
     public func show(viewController: UIViewController) {
         guard self.alertCtrl == nil else { return }
-        print("Showing alert")
         let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
         let indicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         indicator.startAnimating()

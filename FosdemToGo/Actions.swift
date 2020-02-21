@@ -9,6 +9,7 @@
 import Foundation
 import ReSwift
 import FosdemSchedule
+import Network
 
 enum AppStateAction: Action{
     case loadAvailableYears
@@ -19,4 +20,5 @@ enum AppStateAction: Action{
     case scheduleDownloadSucceeded(url: URL)
     case addEventToBookmarks(year: String, id: String)
     case removeEventFromBookmarks(year: String, id: String)
+    case networkStatusChanged(path: NWPath)
 }

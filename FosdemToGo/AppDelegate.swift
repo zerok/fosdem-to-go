@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import FosdemSchedule
 import ReSwift
+import Network
 
 struct AppState: StateType {
     var selectedYear : String?
@@ -21,6 +22,7 @@ struct AppState: StateType {
     var scheduleDownloadSucceeded: Bool? = nil
     var scheduleDownloadedTo: URL? = nil
     var bookmarkedEvents: Set<String> = Set<String>()
+    var networkStatus: NWPath?
     
     init() {
         selectedYear = UserDefaults.standard.string(forKey: "selectedYear")
@@ -39,6 +41,11 @@ func mainReducer(action: Action, state: AppState?) -> AppState {
             state.availableYears = (2012...2020).map({(year: Int) -> String in
                 return String(year)
             })
+            do {
+                try ScheduleFileManager.shared.update()
+            } catch {
+                print("Failed to check for local files!")
+            }
         case .selectYear(let year):
             state.selectedYear = year
             UserDefaults.standard.set(year, forKey: "selectedYear")
@@ -71,6 +78,9 @@ func mainReducer(action: Action, state: AppState?) -> AppState {
             let fullID = "\(year):\(id)"
             state.bookmarkedEvents.remove(fullID)
             UserDefaults.standard.set(state.bookmarkedEvents.sorted(), forKey: "bookmarks")
+        case .networkStatusChanged(path: let path):
+            state.networkStatus = path
+            print(path.status)
         }
     }
     return state
@@ -84,8 +94,12 @@ let mainStore = Store<AppState>(
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
     func newState(state: AppState) {
+        guard let nwStatus = state.networkStatus else { return }
         if state.scheduleForYear != state.selectedYear {
             print("Current year (\(state.scheduleForYear)) does not match selected year (\(state.selectedYear))")
+            if nwStatus.status == .unsatisfied {
+                return
+            }
             let year = state.selectedYear!
             let appSupportPath = "\(NSHomeDirectory())/Library/Application Support"
             let contentPath = "\(appSupportPath)/\(year).xml"
@@ -128,6 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
                     }
                     print("Moving \(state.scheduleDownloadedTo!.path) to \(contentPath)")
                     try FileManager.default.moveItem(atPath: state.scheduleDownloadedTo!.path, toPath: contentPath)
+                    try ScheduleFileManager.shared.update()
                 } catch {
                     print(error)
                     return
@@ -151,6 +166,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
     typealias StoreSubscriberStateType = AppState
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        startNetworkMonitor()
         mainStore.dispatch(AppStateAction.loadAvailableYears)
         mainStore.subscribe(self)
         mainStore.dispatch(AppStateAction.selectYear(mainStore.state.selectedYear ?? "2020"))
@@ -215,6 +231,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func startNetworkMonitor() {
+        let monitor = NWPathMonitor()
+        mainStore.dispatch(AppStateAction.networkStatusChanged(path: monitor.currentPath))
+        monitor.pathUpdateHandler = { path in
+            DispatchQueue.main.async {
+                mainStore.dispatch(AppStateAction.networkStatusChanged(path: path))
+            }
+            
+        }
+        let queue = DispatchQueue(label: "Monitor")
+        monitor.start(queue: queue)
     }
 
 }
