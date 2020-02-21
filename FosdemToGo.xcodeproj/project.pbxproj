@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7A07CBCA23F48DF8009612DE /* TalkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A07CBC923F48DF8009612DE /* TalkDetailsViewController.swift */; };
 		7A0CFB1923FE9C2C0009D98C /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CFB1823FE9C2C0009D98C /* LoadingIndicator.swift */; };
+		7A0CFB1B23FFCBCD0009D98C /* UserScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CFB1A23FFCBCD0009D98C /* UserScheduleController.swift */; };
 		7A4195D023EF1C9A006A54B2 /* YearSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4195CF23EF1C9A006A54B2 /* YearSelectionViewController.swift */; };
 		7A4195D223EF50C9006A54B2 /* DayTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4195D123EF50C9006A54B2 /* DayTrackViewController.swift */; };
 		7A6362C123D715F200F88A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6362C023D715F200F88A92 /* AppDelegate.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		7A07CBC923F48DF8009612DE /* TalkDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkDetailsViewController.swift; sourceTree = "<group>"; };
 		7A0CFB1823FE9C2C0009D98C /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		7A0CFB1A23FFCBCD0009D98C /* UserScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScheduleController.swift; sourceTree = "<group>"; };
 		7A4195CF23EF1C9A006A54B2 /* YearSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearSelectionViewController.swift; sourceTree = "<group>"; };
 		7A4195D123EF50C9006A54B2 /* DayTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTrackViewController.swift; sourceTree = "<group>"; };
 		7A6362BD23D715F200F88A92 /* FosdemToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FosdemToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +156,7 @@
 			children = (
 				7A07CBC923F48DF8009612DE /* TalkDetailsViewController.swift */,
 				7AF53CEF23F87EDF0052D130 /* UserScheduleViewController.swift */,
+				7A0CFB1A23FFCBCD0009D98C /* UserScheduleController.swift */,
 				7A4195CF23EF1C9A006A54B2 /* YearSelectionViewController.swift */,
 				7A4195D123EF50C9006A54B2 /* DayTrackViewController.swift */,
 				7AF114F123ECBA5700D2CC8E /* YearViewController.swift */,
@@ -393,6 +396,7 @@
 				7A6362C123D715F200F88A92 /* AppDelegate.swift in Sources */,
 				7A69F56123DB23B000731474 /* UserData.swift in Sources */,
 				7AF114F223ECBA5700D2CC8E /* YearViewController.swift in Sources */,
+				7A0CFB1B23FFCBCD0009D98C /* UserScheduleController.swift in Sources */,
 				7A80DA0223EDF4050074EEBB /* Actions.swift in Sources */,
 				7A4195D223EF50C9006A54B2 /* DayTrackViewController.swift in Sources */,
 				7A07CBCA23F48DF8009612DE /* TalkDetailsViewController.swift in Sources */,

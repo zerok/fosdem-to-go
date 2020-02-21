@@ -119,7 +119,7 @@
         <!--Bookmarks-->
         <scene sceneID="SGo-na-Ncx">
             <objects>
-                <navigationController id="WKO-j9-ia2" sceneMemberID="viewController">
+                <navigationController id="WKO-j9-ia2" customClass="UserScheduleController" customModule="FosdemToGo" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Bookmarks" image="bookmark" catalog="system" id="yPi-dE-RD1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="s3q-To-c3Z">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
