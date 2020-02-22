@@ -96,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, StoreSubscriber {
     func newState(state: AppState) {
         guard let nwStatus = state.networkStatus else { return }
         if state.scheduleForYear != state.selectedYear {
-            print("Current year (\(state.scheduleForYear)) does not match selected year (\(state.selectedYear))")
+            print("Current year (\(state.scheduleForYear ?? "<no year>")) does not match selected year (\(state.selectedYear ?? "<no year>"))")
             if nwStatus.status == .unsatisfied {
                 return
             }
