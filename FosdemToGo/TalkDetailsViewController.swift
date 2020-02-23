@@ -15,8 +15,7 @@ import ReSwift
 class TalkDetailsViewController: UIViewController, StoreSubscriber {
     var isBookmarked: Bool {
         get {
-            let fullID = "\(mainStore.state.selectedYear!):\(self.event!.id!)"
-            return mainStore.state.bookmarkedEvents.contains(fullID)
+            return mainStore.state.bookmarkedEvents.contains(year: mainStore.state.selectedYear!, eventID: self.event!.id!)
         }
     }
     func newState(state: AppState) {

@@ -21,15 +21,12 @@ struct AppState: StateType {
     var scheduleDownloadFailed: Error? = nil
     var scheduleDownloadSucceeded: Bool? = nil
     var scheduleDownloadedTo: URL? = nil
-    var bookmarkedEvents: Set<String> = Set<String>()
     var networkStatus: NWPath?
+    var bookmarkedEvents: BookmarksCollection = BookmarksCollection()
     
     init() {
         selectedYear = UserDefaults.standard.string(forKey: "selectedYear")
-        if let bm = UserDefaults.standard.object(forKey: "bookmarks") {
-            let bookmarks = bm as! [String]
-            self.bookmarkedEvents = self.bookmarkedEvents.union(bookmarks)
-        }
+        self.bookmarkedEvents.load()
     }
 }
 
@@ -71,13 +68,11 @@ func mainReducer(action: Action, state: AppState?) -> AppState {
             state.scheduleDownloadFailed = nil
             state.scheduleDownloadSucceeded = true
         case .addEventToBookmarks(year: let year, id: let id):
-            let fullID = "\(year):\(id)"
-            state.bookmarkedEvents.insert(fullID)
-            UserDefaults.standard.set(state.bookmarkedEvents.sorted(), forKey: "bookmarks")
+            state.bookmarkedEvents.add(year: year, eventID: id)
+            state.bookmarkedEvents.save()
         case .removeEventFromBookmarks(year: let year, id: let id):
-            let fullID = "\(year):\(id)"
-            state.bookmarkedEvents.remove(fullID)
-            UserDefaults.standard.set(state.bookmarkedEvents.sorted(), forKey: "bookmarks")
+            state.bookmarkedEvents.remove(year: year, eventID: id)
+            state.bookmarkedEvents.save()
         case .networkStatusChanged(path: let path):
             state.networkStatus = path
             print(path.status)

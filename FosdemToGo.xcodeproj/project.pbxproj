@@ -11,7 +11,6 @@
 		7A0CFB1923FE9C2C0009D98C /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CFB1823FE9C2C0009D98C /* LoadingIndicator.swift */; };
 		7A0CFB1B23FFCBCD0009D98C /* UserScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CFB1A23FFCBCD0009D98C /* UserScheduleController.swift */; };
 		7A0CFB1D23FFCEC60009D98C /* ScheduleFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CFB1C23FFCEC60009D98C /* ScheduleFileManager.swift */; };
-		7A0CFB1F23FFE6820009D98C /* OfflineModeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CFB1E23FFE6820009D98C /* OfflineModeAlert.swift */; };
 		7A4195D023EF1C9A006A54B2 /* YearSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4195CF23EF1C9A006A54B2 /* YearSelectionViewController.swift */; };
 		7A4195D223EF50C9006A54B2 /* DayTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4195D123EF50C9006A54B2 /* DayTrackViewController.swift */; };
 		7A6362C123D715F200F88A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6362C023D715F200F88A92 /* AppDelegate.swift */; };
@@ -28,6 +27,8 @@
 		7A80DA0023EDEF260074EEBB /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7A80D9FF23EDEF260074EEBB /* ReSwift */; };
 		7A80DA0223EDF4050074EEBB /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80DA0123EDF4050074EEBB /* Actions.swift */; };
 		7A80DA0423EEC4350074EEBB /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A80DA0323EEC4350074EEBB /* SettingsNavigationController.swift */; };
+		7AE9A5D124027C1C000D90D1 /* BookmarksCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9A5D024027C1C000D90D1 /* BookmarksCollection.swift */; };
+		7AE9A5D324027F8D000D90D1 /* OfflineModeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9A5D224027F8D000D90D1 /* OfflineModeAlert.swift */; };
 		7AF114A923EC792800D2CC8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF114A823EC792800D2CC8E /* ViewController.swift */; };
 		7AF114EA23EC7CA400D2CC8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF114E923EC7CA400D2CC8E /* SceneDelegate.swift */; };
 		7AF114EC23EC7D4D00D2CC8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AF114EB23EC7D4D00D2CC8E /* Main.storyboard */; };
@@ -61,7 +62,6 @@
 		7A0CFB1823FE9C2C0009D98C /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		7A0CFB1A23FFCBCD0009D98C /* UserScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScheduleController.swift; sourceTree = "<group>"; };
 		7A0CFB1C23FFCEC60009D98C /* ScheduleFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleFileManager.swift; sourceTree = "<group>"; };
-		7A0CFB1E23FFE6820009D98C /* OfflineModeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineModeAlert.swift; sourceTree = "<group>"; };
 		7A4195CF23EF1C9A006A54B2 /* YearSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearSelectionViewController.swift; sourceTree = "<group>"; };
 		7A4195D123EF50C9006A54B2 /* DayTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTrackViewController.swift; sourceTree = "<group>"; };
 		7A6362BD23D715F200F88A92 /* FosdemToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FosdemToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +85,8 @@
 		7A80D9FC23EDB3200074EEBB /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		7A80DA0123EDF4050074EEBB /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		7A80DA0323EEC4350074EEBB /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
+		7AE9A5D024027C1C000D90D1 /* BookmarksCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCollection.swift; sourceTree = "<group>"; };
+		7AE9A5D224027F8D000D90D1 /* OfflineModeAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineModeAlert.swift; sourceTree = "<group>"; };
 		7AF114A823EC792800D2CC8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7AF114E923EC7CA400D2CC8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7AF114EB23EC7D4D00D2CC8E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 		7AF114F123ECBA5700D2CC8E /* YearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewController.swift; sourceTree = "<group>"; };
 		7AF114F323ECBB0900D2CC8E /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		7AF53CEF23F87EDF0052D130 /* UserScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScheduleViewController.swift; sourceTree = "<group>"; };
-		7AF53CF123F889A40052D130 /* EventTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventTableCell.swift; path = FosdemToGo/EventTableCell.swift; sourceTree = "<group>"; };
+		7AF53CF123F889A40052D130 /* EventTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +135,6 @@
 		7A6362B423D715F200F88A92 = {
 			isa = PBXGroup;
 			children = (
-				7A0CFB1E23FFE6820009D98C /* OfflineModeAlert.swift */,
-				7AF53CF123F889A40052D130 /* EventTableCell.swift */,
 				7A6362F623D73E1800F88A92 /* FosdemSchedule */,
 				7A6362BF23D715F200F88A92 /* FosdemToGo */,
 				7A6362D923D715F500F88A92 /* FosdemToGoTests */,
@@ -159,6 +159,8 @@
 		7A6362BF23D715F200F88A92 /* FosdemToGo */ = {
 			isa = PBXGroup;
 			children = (
+				7AE9A5D224027F8D000D90D1 /* OfflineModeAlert.swift */,
+				7AF53CF123F889A40052D130 /* EventTableCell.swift */,
 				7A07CBC923F48DF8009612DE /* TalkDetailsViewController.swift */,
 				7AF53CEF23F87EDF0052D130 /* UserScheduleViewController.swift */,
 				7A0CFB1A23FFCBCD0009D98C /* UserScheduleController.swift */,
@@ -183,6 +185,7 @@
 				7A80DA0123EDF4050074EEBB /* Actions.swift */,
 				7A0CFB1823FE9C2C0009D98C /* LoadingIndicator.swift */,
 				7A0CFB1C23FFCEC60009D98C /* ScheduleFileManager.swift */,
+				7AE9A5D024027C1C000D90D1 /* BookmarksCollection.swift */,
 			);
 			path = FosdemToGo;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A0CFB1923FE9C2C0009D98C /* LoadingIndicator.swift in Sources */,
+				7AE9A5D124027C1C000D90D1 /* BookmarksCollection.swift in Sources */,
 				7AF114EA23EC7CA400D2CC8E /* SceneDelegate.swift in Sources */,
 				7A80D9FD23EDB3200074EEBB /* DayViewController.swift in Sources */,
 				7A80DA0423EEC4350074EEBB /* SettingsNavigationController.swift in Sources */,
@@ -412,8 +416,8 @@
 				7AF114A923EC792800D2CC8E /* ViewController.swift in Sources */,
 				7AF53CF023F87EDF0052D130 /* UserScheduleViewController.swift in Sources */,
 				7AF114F023ECAEB800D2CC8E /* ScheduleController.swift in Sources */,
+				7AE9A5D324027F8D000D90D1 /* OfflineModeAlert.swift in Sources */,
 				7A6362F523D717FB00F88A92 /* FosdemToGo.xcdatamodeld in Sources */,
-				7A0CFB1F23FFE6820009D98C /* OfflineModeAlert.swift in Sources */,
 				7AF114EE23EC893500D2CC8E /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

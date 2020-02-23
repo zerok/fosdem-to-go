@@ -22,18 +22,7 @@ class UserScheduleViewController: UITableViewController, StoreSubscriber {
         guard let schedule = state.schedule else { return }
         days = []
         eventsPerDay = Dictionary<String, [Event]>()
-        bookmarks = state.bookmarkedEvents.sorted().filter({ (id: String) in
-            let elems = id.split(separator: ":")
-            if elems.count < 2 {
-                return false
-            }
-            if elems[0] != state.selectedYear ?? "" {
-                return false
-            }
-            return true
-        }).map({ (id: String) in
-            return String(id.split(separator: ":")[1])
-        })
+        bookmarks = state.bookmarkedEvents.getEvents(year: state.selectedYear ?? "")
         events = bookmarks.map({ (id: String) in
             return schedule.event(forId: id)!
         }).sorted(by: {
