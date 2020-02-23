@@ -13,6 +13,7 @@ import WebKit
 import ReSwift
 
 class TalkDetailsViewController: UIViewController, StoreSubscriber {
+    private var bookmarkButton: UIBarButtonItem?
     var isBookmarked: Bool {
         get {
             guard let bookmarks = mainStore.state.bookmarkedEvents else { return false }
@@ -20,10 +21,11 @@ class TalkDetailsViewController: UIViewController, StoreSubscriber {
         }
     }
     func newState(state: AppState) {
+        guard let bookmarkButton = bookmarkButton else { return }
         if isBookmarked {
-            self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "bookmark.fill")
+            bookmarkButton.image = UIImage(systemName: "bookmark.fill")
         } else {
-            self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "bookmark")
+            bookmarkButton.image = UIImage(systemName: "bookmark")
         }
     }
     
@@ -47,11 +49,17 @@ class TalkDetailsViewController: UIViewController, StoreSubscriber {
         }
     }
     
+    @objc func share(sender: UIBarButtonItem) {
+        guard let url = self.eventURL else { return }
+        guard let event = self.event else { return }
+        let str = "\(event.title ?? "")\n\(url)\n\(timeRange)"
+        let ctrl = UIActivityViewController(activityItems: [str, url], applicationActivities: nil)
+        self.present(ctrl, animated: true, completion: nil)
+    }
+    
     @objc func onTitleTap(_ sender: UILabel) {
-        guard let u = URL(string: "https://fosdem.org/\(mainStore.state.selectedYear ?? "no-year")/schedule/event/\(self.event?.slug ?? "no-slug")/") else {
-            return
-        }
-        UIApplication.shared.open(u)
+        guard let url = self.eventURL else { return }
+        UIApplication.shared.open(url)
     }
     
     @objc func onRoomNameTap(_ sender: UILabel) {
@@ -68,9 +76,10 @@ class TalkDetailsViewController: UIViewController, StoreSubscriber {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         mainStore.subscribe(self)
-        let button = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .plain, target: self, action: #selector(TalkDetailsViewController.toggleBookmark(sender:)))
-        self.navigationItem.rightBarButtonItem = button
+        self.bookmarkButton = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .plain, target: self, action: #selector(TalkDetailsViewController.toggleBookmark(sender:)))
+        let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(TalkDetailsViewController.share(sender:)))
         self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.rightBarButtonItems = [self.bookmarkButton!, shareButton]
         self.newState(state: mainStore.state)
         guard let event = self.event else { return }
         self.titleView.text = event.title
@@ -81,21 +90,35 @@ class TalkDetailsViewController: UIViewController, StoreSubscriber {
         self.roomNameView.text = event.roomName
         self.roomNameView.isUserInteractionEnabled = true
         self.roomNameView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.onRoomNameTap(_:))))
+        self.timeView.text = self.timeRange
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        mainStore.unsubscribe(self)
+    }
+    
+    var eventURL: URL? {
+        get {
+            guard let u = URL(string: "https://fosdem.org/\(mainStore.state.selectedYear ?? "no-year")/schedule/event/\(self.event?.slug ?? "no-slug")/") else {
+                return nil
+            }
+            return u
+        }
+    }
+    
+    var timeRange: String {
+        guard let event = event else { return "" }
         let timeFormatter = DateFormatter()
         timeFormatter.dateStyle = .none
         timeFormatter.timeStyle = .short
         if let interval = event.interval {
             let start = timeFormatter.string(from: interval.start)
             let end = timeFormatter.string(from: interval.end)
-            self.timeView.text = "\(start) - \(end)"
+            return "\(start) - \(end)"
         } else {
-            self.timeView.text = "?"
+            return "?"
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        mainStore.unsubscribe(self)
     }
 
 }
