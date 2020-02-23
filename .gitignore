@@ -1,2 +1,6 @@
 /FosdemToGo/Assets.xcassets/schedules
+/FosdemToGo/build
+/FosdemSchedule/build
+/assets/*.png
+/build
 .DS_Store
