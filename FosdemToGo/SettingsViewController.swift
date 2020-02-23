@@ -16,7 +16,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet var tableView: UITableView!
             
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,18 +24,32 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "item")!
-        cell.textLabel?.text = "Year"
-        cell.detailTextLabel?.text = mainStore.state.selectedYear ?? "..."
+        let cell: UITableViewCell
+        if indexPath.section == 0 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "item")!
+            cell.textLabel?.text = "Year"
+            cell.detailTextLabel?.text = mainStore.state.selectedYear ?? "..."
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "about")!
+            cell.textLabel?.text = "About"
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "pickYear", sender: nil)
+        if indexPath.section == 0 {
+            self.performSegue(withIdentifier: "pickYear", sender: nil)
+        } else {
+            self.performSegue(withIdentifier: "showAbout", sender: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "General"
+        if section == 0 {
+            return "General"
+        } else {
+            return "Info"
+        }
     }
     
 
