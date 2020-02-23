@@ -18,7 +18,7 @@ enum AppStateAction: Action{
     case startScheduleDownload(year: String)
     case scheduleDownloadFailed(withError: Error)
     case scheduleDownloadSucceeded(url: URL)
-    case addEventToBookmarks(year: String, id: String)
-    case removeEventFromBookmarks(year: String, id: String)
+    case addEventToBookmarks(id: String)
+    case removeEventFromBookmarks(id: String)
     case networkStatusChanged(path: NWPath)
 }

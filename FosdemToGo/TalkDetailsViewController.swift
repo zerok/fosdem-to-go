@@ -15,7 +15,8 @@ import ReSwift
 class TalkDetailsViewController: UIViewController, StoreSubscriber {
     var isBookmarked: Bool {
         get {
-            return mainStore.state.bookmarkedEvents.contains(year: mainStore.state.selectedYear!, eventID: self.event!.id!)
+            guard let bookmarks = mainStore.state.bookmarkedEvents else { return false }
+            return bookmarks.contains(eventID: self.event!.id!)
         }
     }
     func newState(state: AppState) {
@@ -40,9 +41,9 @@ class TalkDetailsViewController: UIViewController, StoreSubscriber {
     
     @objc func toggleBookmark(sender: UIBarButtonItem) {
         if isBookmarked {
-        mainStore.dispatch(AppStateAction.removeEventFromBookmarks(year: mainStore.state.selectedYear!, id: self.event!.id!))
+            mainStore.dispatch(AppStateAction.removeEventFromBookmarks(id: self.event!.id!))
         } else {
-        mainStore.dispatch(AppStateAction.addEventToBookmarks(year: mainStore.state.selectedYear!, id: self.event!.id!))
+            mainStore.dispatch(AppStateAction.addEventToBookmarks(id: self.event!.id!))
         }
     }
     

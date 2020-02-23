@@ -22,11 +22,10 @@ struct AppState: StateType {
     var scheduleDownloadSucceeded: Bool? = nil
     var scheduleDownloadedTo: URL? = nil
     var networkStatus: NWPath?
-    var bookmarkedEvents: BookmarksCollection = BookmarksCollection()
+    var bookmarkedEvents: BookmarksCollection? = nil
     
     init() {
         selectedYear = UserDefaults.standard.string(forKey: "selectedYear")
-        self.bookmarkedEvents.load()
     }
 }
 
@@ -52,6 +51,8 @@ func mainReducer(action: Action, state: AppState?) -> AppState {
             state.scheduleDownloadSucceeded = nil
             state.scheduleDownloadFailed = nil
             state.scheduleDownloadedTo = nil
+            state.bookmarkedEvents = BookmarksCollection(year: year)
+            state.bookmarkedEvents!.load()
         case .startScheduleDownload(year: _):
             state.scheduleDownloadLoading = true
             state.scheduleDownloadFailed = nil
@@ -67,12 +68,14 @@ func mainReducer(action: Action, state: AppState?) -> AppState {
             state.scheduleDownloadLoading = false
             state.scheduleDownloadFailed = nil
             state.scheduleDownloadSucceeded = true
-        case .addEventToBookmarks(year: let year, id: let id):
-            state.bookmarkedEvents.add(year: year, eventID: id)
-            state.bookmarkedEvents.save()
-        case .removeEventFromBookmarks(year: let year, id: let id):
-            state.bookmarkedEvents.remove(year: year, eventID: id)
-            state.bookmarkedEvents.save()
+        case .addEventToBookmarks(id: let id):
+            guard state.bookmarkedEvents != nil else { return state }
+            state.bookmarkedEvents!.add(eventID: id)
+            state.bookmarkedEvents!.save()
+        case .removeEventFromBookmarks(id: let id):
+            guard state.bookmarkedEvents != nil else { return state }
+            state.bookmarkedEvents!.remove(eventID: id)
+            state.bookmarkedEvents!.save()
         case .networkStatusChanged(path: let path):
             state.networkStatus = path
             print(path.status)

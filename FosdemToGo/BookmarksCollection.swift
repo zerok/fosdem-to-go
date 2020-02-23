@@ -10,25 +10,32 @@ import Foundation
 
 class BookmarksCollection {
     private var bookmarkedEvents = Set<String>()
+    private var year: String?
     
-    init() {}
+    init(year: String) {
+        self.year = year
+    }
     
-    public func add(year: String, eventID: String) {
+    public func add(eventID: String) {
+        guard let year = self.year else { return }
         let id = "\(year):\(eventID)"
         self.bookmarkedEvents.insert(id)
     }
     
-    public func remove(year: String, eventID: String) {
+    public func remove(eventID: String) {
+        guard let year = self.year else { return }
         let id = "\(year):\(eventID)"
         self.bookmarkedEvents.remove(id)
     }
     
-    public func contains(year: String, eventID: String) -> Bool {
+    public func contains(eventID: String) -> Bool {
+        guard let year = self.year else { return false }
         let id = "\(year):\(eventID)"
         return self.bookmarkedEvents.contains(id)
     }
     
-    public func getEvents(year: String) -> [String] {
+    public func getEvents() -> [String] {
+        guard let year = self.year else { return [] }
         return self.bookmarkedEvents.sorted().filter({ (id: String) in
             let elems = id.split(separator: ":")
             if elems.count < 2 {
