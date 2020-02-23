@@ -91,7 +91,7 @@
 		7AE9A5D224027F8D000D90D1 /* OfflineModeAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineModeAlert.swift; sourceTree = "<group>"; };
 		7AE9A5D4240289BC000D90D1 /* BookmarksCollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCollectionTests.swift; sourceTree = "<group>"; };
 		7AE9A5D724028DF4000D90D1 /* FosdemToGoUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FosdemToGoUITests.swift; sourceTree = "<group>"; };
-		7AE9A5D92402B085000D90D1 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = FosdemToGo/AboutViewController.swift; sourceTree = "<group>"; };
+		7AE9A5D92402B085000D90D1 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		7AF114A823EC792800D2CC8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7AF114E923EC7CA400D2CC8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7AF114EB23EC7D4D00D2CC8E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -140,7 +140,6 @@
 		7A6362B423D715F200F88A92 = {
 			isa = PBXGroup;
 			children = (
-				7AE9A5D92402B085000D90D1 /* AboutViewController.swift */,
 				7A6362F623D73E1800F88A92 /* FosdemSchedule */,
 				7A6362BF23D715F200F88A92 /* FosdemToGo */,
 				7A6362D923D715F500F88A92 /* FosdemToGoTests */,
@@ -165,6 +164,7 @@
 		7A6362BF23D715F200F88A92 /* FosdemToGo */ = {
 			isa = PBXGroup;
 			children = (
+				7AE9A5D92402B085000D90D1 /* AboutViewController.swift */,
 				7AE9A5D224027F8D000D90D1 /* OfflineModeAlert.swift */,
 				7AF53CF123F889A40052D130 /* EventTableCell.swift */,
 				7A07CBC923F48DF8009612DE /* TalkDetailsViewController.swift */,
