@@ -5,14 +5,13 @@
 //  Created by Horst Gutmann on 23.02.20.
 //  Copyright © 2020 Horst Gutmann. All rights reserved.
 //
-
 import Foundation
 
-class BookmarksCollection {
+public class BookmarksCollection {
     private var bookmarkedEvents = Set<String>()
     private var year: String?
     
-    init(year: String) {
+    public init(year: String) {
         self.year = year
     }
     
@@ -50,12 +49,21 @@ class BookmarksCollection {
         })
     }
     
+    public func save(to userdefaults: UserDefaults) {
+        guard let year = year else { return }
+        userdefaults.set(self.bookmarkedEvents.sorted(), forKey: "bookmarks_\(year)")
+    }
+    
     public func save() {
-        UserDefaults.standard.set(self.bookmarkedEvents.sorted(), forKey: "bookmarks")
+        self.save(to: UserDefaults.standard)
     }
     
     public func load() {
-        if let bm = UserDefaults.standard.object(forKey: "bookmarks") {
+        self.load(from: UserDefaults.standard)
+    }
+    public func load(from userdefaults: UserDefaults) {
+        guard let year = year else { return }
+        if let bm = userdefaults.object(forKey: "bookmarks_\(year)") {
             let bookmarks = bm as! [String]
             self.bookmarkedEvents = self.bookmarkedEvents.union(bookmarks)
         }

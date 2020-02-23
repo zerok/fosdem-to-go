@@ -47,6 +47,14 @@
                BlueprintName = "FosdemToGoUITests"
                ReferencedContainer = "container:FosdemToGo.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "FosdemToGoUITests/testExample()">
+               </Test>
+               <Test
+                  Identifier = "FosdemToGoUITests/testLaunchPerformance()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
