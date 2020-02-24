@@ -13,17 +13,29 @@ import FosdemSchedule
 class EventTableCell: UITableViewCell {
     @IBOutlet var locationLabel: UILabel?
     
+    @IBOutlet var titleLabel: UILabel?
+    
+    @IBOutlet var timeLabel: UILabel?
+    
     var event: Event?
     
+    func bookmark() {
+        if let textLabel = titleLabel {
+            textLabel.textColor = UIColor.FOSDEM.bookmarking
+        }
+    }
+    
     func from(event: Event) {
+        let fgColor = UIScreen.main.traitCollection.userInterfaceStyle == .dark ? UIColor.white : UIColor.black
         self.event = event
-        if let textLabel = textLabel {
+        if let textLabel = titleLabel {
             textLabel.text = event.title
+            textLabel.textColor = fgColor
         }
         if let locationLabel = locationLabel {
             locationLabel.text = event.roomName
         }
-        if let detailLabel = detailTextLabel {
+        if let detailLabel = timeLabel {
             let formatter = DateFormatter()
             formatter.dateStyle = .none
             formatter.timeStyle = .short

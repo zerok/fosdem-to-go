@@ -77,6 +77,7 @@ class TalkDetailsViewController: UIViewController, StoreSubscriber {
         super.viewWillAppear(animated)
         mainStore.subscribe(self)
         self.bookmarkButton = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .plain, target: self, action: #selector(TalkDetailsViewController.toggleBookmark(sender:)))
+        self.bookmarkButton?.tintColor = UIColor.FOSDEM.bookmarking
         let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(TalkDetailsViewController.share(sender:)))
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.rightBarButtonItems = [self.bookmarkButton!, shareButton]

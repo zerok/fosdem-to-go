@@ -30,19 +30,27 @@ class DayTrackViewController: UITableViewController {
         return events.count
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "eventCell")!
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "talkCell")! as! EventTableCell
+        guard indexPath.row < events.count else { return cell }
+        guard let bookmarkedEvents = mainStore.state.bookmarkedEvents else { return cell }
         let evt = events[indexPath.row]
-        cell.textLabel?.text = evt.title!
+        guard evt.id != nil else { return cell }
+        cell.from(event: evt)
         cell.tag = indexPath.row
-        let formatter = DateFormatter()
-        formatter.dateStyle = .none
-        formatter.timeStyle = .short
-        formatter.timeZone = TimeZone(identifier: "Europe/Brussels")
-        if let time = evt.interval {
-            cell.detailTextLabel?.text = formatter.string(from: time.start)
+        if bookmarkedEvents.contains(eventID: evt.id!) {
+            cell.bookmark()
         }
         return cell
+    }
+        
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        self.tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

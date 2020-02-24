@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A018772240457FF00951FAF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A018771240457FF00951FAF /* Colors.swift */; };
 		7A07CBCA23F48DF8009612DE /* TalkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A07CBC923F48DF8009612DE /* TalkDetailsViewController.swift */; };
 		7A0CFB1923FE9C2C0009D98C /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CFB1823FE9C2C0009D98C /* LoadingIndicator.swift */; };
 		7A0CFB1B23FFCBCD0009D98C /* UserScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CFB1A23FFCBCD0009D98C /* UserScheduleController.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A018771240457FF00951FAF /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7A07CBC923F48DF8009612DE /* TalkDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkDetailsViewController.swift; sourceTree = "<group>"; };
 		7A0CFB1823FE9C2C0009D98C /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		7A0CFB1A23FFCBCD0009D98C /* UserScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScheduleController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				7A6362CE23D715F400F88A92 /* LaunchScreen.storyboard */,
 				7A6362D123D715F400F88A92 /* Info.plist */,
 				7AF114EB23EC7D4D00D2CC8E /* Main.storyboard */,
+				7A018771240457FF00951FAF /* Colors.swift */,
 				7A6362CB23D715F400F88A92 /* Preview Content */,
 				7A80DA0123EDF4050074EEBB /* Actions.swift */,
 				7A0CFB1823FE9C2C0009D98C /* LoadingIndicator.swift */,
@@ -406,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A0CFB1923FE9C2C0009D98C /* LoadingIndicator.swift in Sources */,
+				7A018772240457FF00951FAF /* Colors.swift in Sources */,
 				7AE9A5D124027C1C000D90D1 /* BookmarksCollection.swift in Sources */,
 				7AF114EA23EC7CA400D2CC8E /* SceneDelegate.swift in Sources */,
 				7A80D9FD23EDB3200074EEBB /* DayViewController.swift in Sources */,

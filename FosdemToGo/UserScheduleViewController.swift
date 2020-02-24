@@ -91,4 +91,8 @@ class UserScheduleViewController: UITableViewController, StoreSubscriber {
         }
         destination.event = cell.event
     }
+    
+   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        self.tableView.reloadData()
+    }
 }
