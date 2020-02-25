@@ -144,6 +144,20 @@ public class FosdemSchedule {
         return delegate.schedule
     }
     
+    public func load(fileAtPath: String) throws -> Schedule? {
+        let fileStream = InputStream.init(fileAtPath: fileAtPath)!
+        let parser = XMLParser.init(stream: fileStream)
+        let delegate = ScheduleParserDelegate()
+        parser.delegate = delegate
+        if (!parser.parse()) {
+            if let e = parser.parserError {
+                throw e
+            }
+            return nil
+        }
+        return delegate.schedule
+    }
+    
     public func loadFile(url: URL) throws -> Schedule? {
         let fileStream = InputStream.init(url: url)!
         let parser = XMLParser.init(stream: fileStream)

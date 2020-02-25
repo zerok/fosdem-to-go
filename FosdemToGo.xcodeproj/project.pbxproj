@@ -14,6 +14,8 @@
 		7A0CFB1D23FFCEC60009D98C /* ScheduleFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CFB1C23FFCEC60009D98C /* ScheduleFileManager.swift */; };
 		7A4195D023EF1C9A006A54B2 /* YearSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4195CF23EF1C9A006A54B2 /* YearSelectionViewController.swift */; };
 		7A4195D223EF50C9006A54B2 /* DayTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4195D123EF50C9006A54B2 /* DayTrackViewController.swift */; };
+		7A46FD4D24059C62008368CA /* ReSwift-Thunk in Frameworks */ = {isa = PBXBuildFile; productRef = 7A46FD4C24059C62008368CA /* ReSwift-Thunk */; };
+		7A46FD4F2405AB6C008368CA /* AlertDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46FD4E2405AB6C008368CA /* AlertDialog.swift */; };
 		7A6362C123D715F200F88A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6362C023D715F200F88A92 /* AppDelegate.swift */; };
 		7A6362CA23D715F400F88A92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A6362C923D715F400F88A92 /* Assets.xcassets */; };
 		7A6362CD23D715F400F88A92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A6362CC23D715F400F88A92 /* Preview Assets.xcassets */; };
@@ -69,6 +71,7 @@
 		7A0CFB1C23FFCEC60009D98C /* ScheduleFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleFileManager.swift; sourceTree = "<group>"; };
 		7A4195CF23EF1C9A006A54B2 /* YearSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearSelectionViewController.swift; sourceTree = "<group>"; };
 		7A4195D123EF50C9006A54B2 /* DayTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTrackViewController.swift; sourceTree = "<group>"; };
+		7A46FD4E2405AB6C008368CA /* AlertDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDialog.swift; sourceTree = "<group>"; };
 		7A6362BD23D715F200F88A92 /* FosdemToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FosdemToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A6362C023D715F200F88A92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A6362C923D715F400F88A92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 			files = (
 				7A80D9FB23EDA4230074EEBB /* FosdemSchedule in Frameworks */,
 				7A80DA0023EDEF260074EEBB /* ReSwift in Frameworks */,
+				7A46FD4D24059C62008368CA /* ReSwift-Thunk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +170,7 @@
 		7A6362BF23D715F200F88A92 /* FosdemToGo */ = {
 			isa = PBXGroup;
 			children = (
+				7A46FD4E2405AB6C008368CA /* AlertDialog.swift */,
 				7AE9A5D92402B085000D90D1 /* AboutViewController.swift */,
 				7AE9A5D224027F8D000D90D1 /* OfflineModeAlert.swift */,
 				7AF53CF123F889A40052D130 /* EventTableCell.swift */,
@@ -261,6 +266,7 @@
 			packageProductDependencies = (
 				7A80D9FA23EDA4230074EEBB /* FosdemSchedule */,
 				7A80D9FF23EDEF260074EEBB /* ReSwift */,
+				7A46FD4C24059C62008368CA /* ReSwift-Thunk */,
 			);
 			productName = "fosdem-to-go";
 			productReference = 7A6362BD23D715F200F88A92 /* FosdemToGo.app */;
@@ -355,6 +361,7 @@
 			mainGroup = 7A6362B423D715F200F88A92;
 			packageReferences = (
 				7A80D9FE23EDEF260074EEBB /* XCRemoteSwiftPackageReference "ReSwift" */,
+				7A46FD4B24059C62008368CA /* XCRemoteSwiftPackageReference "ReSwift-Thunk" */,
 			);
 			productRefGroup = 7A6362BE23D715F200F88A92 /* Products */;
 			projectDirPath = "";
@@ -431,6 +438,7 @@
 				7AE9A5D324027F8D000D90D1 /* OfflineModeAlert.swift in Sources */,
 				7A6362F523D717FB00F88A92 /* FosdemToGo.xcdatamodeld in Sources */,
 				7AF114EE23EC893500D2CC8E /* SettingsViewController.swift in Sources */,
+				7A46FD4F2405AB6C008368CA /* AlertDialog.swift in Sources */,
 				7AE9A5DA2402B085000D90D1 /* AboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -820,6 +828,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7A46FD4B24059C62008368CA /* XCRemoteSwiftPackageReference "ReSwift-Thunk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift-Thunk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 		7A80D9FE23EDEF260074EEBB /* XCRemoteSwiftPackageReference "ReSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
@@ -831,6 +847,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7A46FD4C24059C62008368CA /* ReSwift-Thunk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A46FD4B24059C62008368CA /* XCRemoteSwiftPackageReference "ReSwift-Thunk" */;
+			productName = "ReSwift-Thunk";
+		};
 		7A80D9FA23EDA4230074EEBB /* FosdemSchedule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FosdemSchedule;

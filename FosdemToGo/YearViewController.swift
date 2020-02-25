@@ -18,6 +18,13 @@ class YearViewController: UITableViewController, StoreSubscriber {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.title = mainStore.state.selectedYear ?? "no year selected"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise.icloud"), style: .plain, target: self, action: #selector(YearViewController.reloadSchedule(_:)))
+    }
+    
+    @objc func reloadSchedule(_ sender: Any?) {
+        guard let nwStatus = mainStore.state.networkStatus else { return }
+        guard nwStatus.status == .satisfied else { return }
+        mainStore.dispatch(AppStateAction.downloadSchedule)
     }
     
     func newState(state: AppState) {
@@ -29,8 +36,19 @@ class YearViewController: UITableViewController, StoreSubscriber {
             if !state.scheduleDownloadLoading || state.schedule != nil {
                 LoadingIndicator.shared.hide()
             }
+            if state.scheduleDownloadFailed != nil {
+                AlertDialog.shared.show(viewController: self, msg: "failed to download schedule")
+                return
+            }
+            if state.updateScheduleFailed != nil {
+                AlertDialog.shared.show(viewController: self, msg: "failed to load schedule")
+                return
+            }
             self.title = state.selectedYear
             self.tableView.reloadData()
+            guard let nwStatus = mainStore.state.networkStatus else { return }
+            guard nwStatus.status == .satisfied else { return }
+            self.navigationItem.rightBarButtonItem?.isEnabled = nwStatus.status == .satisfied
         }
     }
     
