@@ -24,6 +24,9 @@ class AboutViewController: UIViewController {
         msg.append(NSAttributedString(string: "Github", attributes: [.font: font, .foregroundColor: UIColor.white, .link: "https://github.com/zerok/fosdem-to-go"]))
         msg.append(NSAttributedString(string: ". Under the hood, the following libraries are used:\n\n - ", attributes: [.font: font, .foregroundColor: fgColor]))
         msg.append(NSAttributedString(string: "ReSwift", attributes: [.font: font, .foregroundColor: UIColor.white, .link: "https://github.com/ReSwift/ReSwift"]))
+        msg.append(NSAttributedString(string: "\n\nAll session information is taken from ", attributes: [.font: font, .foregroundColor: fgColor]))
+        msg.append(NSAttributedString(string: "FOSDEM.org", attributes: [.font: font, .foregroundColor: UIColor.white, .link: "https://fosdem.org"]))
+        msg.append(NSAttributedString(string: ".", attributes: [.font: font, .foregroundColor: fgColor]))
         textView.attributedText = msg
     }
 }
