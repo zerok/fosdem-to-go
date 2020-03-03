@@ -7,5 +7,12 @@ a talk schedule.
 
 This all started primarily as an experiment to learn Swift und UIKit but it
 quickly grew into something that I wanted to have for FOSDEM 2021. I hope you
-find it useful too! This app will also eventually be available on the AppStore
-but will require iOS 13 for now!
+find it useful too!
+
+You can find a more detailed story about how this app came to be on
+[zerokspot.com][z].
+
+FosdemToGo is now **[available in the iOS AppStore][a]**!
+
+[a]: https://apps.apple.com/at/app/fosdemtogo/id1500192366?l=en
+[z]: https://zerokspot.com/weblog/2020/02/27/fosdem-to-go/
