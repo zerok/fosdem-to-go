@@ -38,7 +38,7 @@ func mainReducer(action: Action, state: AppState?) -> AppState {
         print(action)
         switch action {
         case .loadAvailableYears:
-            state.availableYears = (2012...2020).map({(year: Int) -> String in
+            state.availableYears = (2012...2021).map({(year: Int) -> String in
                 return String(year)
             })
             do {
