@@ -124,7 +124,7 @@ public class FosdemSchedule {
     static public let shared = FosdemSchedule()
     
     public func downloadSchedule(year: Int) -> URLSessionDownloadTask {
-        var url = "https://fosdem.org/\(year)/schedule/xml"
+        let url = "https://fosdem.org/\(year)/schedule/xml"
         let u = URL(string: url)!
         let task = URLSession.shared.downloadTask(with: u)
         task.resume()

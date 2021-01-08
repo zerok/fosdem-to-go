@@ -24,7 +24,7 @@ class DayViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.schedule!.days[self.dayIdx].rooms.count
+        return self.schedule!.days[self.dayIdx].tracks.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
