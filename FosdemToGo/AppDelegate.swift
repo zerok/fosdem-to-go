@@ -35,7 +35,6 @@ struct AppState: StateType {
 func mainReducer(action: Action, state: AppState?) -> AppState {
     var state = state ?? AppState()
     if let action = action as? AppStateAction {
-        print(action)
         switch action {
         case .loadAvailableYears:
             state.availableYears = (2012...2021).map({(year: Int) -> String in
