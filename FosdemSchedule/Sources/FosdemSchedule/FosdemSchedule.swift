@@ -204,7 +204,11 @@ public struct Schedule{
                     }
                 }
             }
-            return result.sorted()
+            return result.sorted(by: {(a: String, b: String) -> Bool in
+                let la = a.lowercased()
+                let lb = b.lowercased()
+                return la < lb
+            })
         }
     }
 }
@@ -267,7 +271,11 @@ public class Day {
                     }
                 }
             }
-            return result.sorted()
+            return result.sorted(by: {(a: String, b: String) -> Bool in
+                let la = a.lowercased()
+                let lb = b.lowercased()
+                return la < lb
+            })
         }
     }
     
