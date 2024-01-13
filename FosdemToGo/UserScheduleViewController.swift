@@ -23,8 +23,15 @@ class UserScheduleViewController: UITableViewController, StoreSubscriber {
         days = []
         eventsPerDay = Dictionary<String, [Event]>()
         bookmarks = state.bookmarkedEvents!.getEvents()
-        events = bookmarks.map({ (id: String) in
-            return schedule.event(forId: id)!
+        events = bookmarks.filter({(id: String) in
+            if let _ = schedule.event(forId: id) {
+                return true
+            } else {
+                NSLog("Event no longer present: %@", id)
+                return false
+            }
+        }).map({ (id: String) in
+            schedule.event(forId: id)!
         }).sorted(by: {
             if let i1 = $0.interval, let i2 = $1.interval {
                 return i1.start < i2.start
