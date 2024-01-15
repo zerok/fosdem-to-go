@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import FosdemSchedule
 import ReSwift
-import ReSwift_Thunk
+import ReSwiftThunk
 import Network
 
 struct AppState: StateType {

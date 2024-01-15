@@ -6,17 +6,17 @@
         "repositoryURL": "https://github.com/ReSwift/ReSwift.git",
         "state": {
           "branch": null,
-          "revision": "b92762b5aa85c5e94053d942fbd37124ee939e5b",
-          "version": "5.0.0"
+          "revision": "cb5c3c02f652420ef413dea41e13ac5a76b6c0fd",
+          "version": "6.1.1"
         }
       },
       {
-        "package": "ReSwift-Thunk",
+        "package": "ReSwiftThunk",
         "repositoryURL": "https://github.com/ReSwift/ReSwift-Thunk.git",
         "state": {
           "branch": null,
-          "revision": "52152497d43270f3914edfde59e9f43c8c996f6b",
-          "version": "1.2.0"
+          "revision": "5ee9816158a2115863b1458c66cf1be9e9143b39",
+          "version": "2.0.1"
         }
       }
     ]

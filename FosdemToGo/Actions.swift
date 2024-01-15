@@ -10,7 +10,7 @@ import Foundation
 import ReSwift
 import FosdemSchedule
 import Network
-import ReSwift_Thunk
+import ReSwiftThunk
 
 enum AppStateAction: Action{
     case loadAvailableYears
